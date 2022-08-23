@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "standard",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "rules": {
+    "@next/next/no-img-element": "off" // 静的サイト構築にともなう img タグの記述許可
+  }
+}
