@@ -1,0 +1,9 @@
+@use "global/vars" as v;
+
+/**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+@function palette($palette-group, $palette-type: "default") {
+  @return map-get(map-get(v.$color, $palette-group), $palette-type);
+}

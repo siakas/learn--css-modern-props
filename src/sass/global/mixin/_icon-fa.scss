@@ -1,0 +1,16 @@
+@use "global/vars" as v;
+
+/**
+ * Font Awesome のアイコンを出力
+ * icon-fa の引数にはエスケープなしの文字コードを直接記述する（初期値は f105 で右向き矢印）
+--------------------------------------------- */
+@mixin icon-fa($unicode: "f105") {
+  content: unquote('\"') + unquote(str-insert($unicode, '\\', 1)) + unquote('\"');
+  font-family: 'Font-Awesome-Icons';
+  font-weight: normal;
+  font-style: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 0;
+}

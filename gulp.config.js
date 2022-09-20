@@ -14,6 +14,6 @@ module.exports = {
   sass: {
     src: ['src/sass/**/*.scss', '!src/sass/**/libs/**/*.scss'],
     watchSrc: 'src/sass/**/*.{scss,css}',
-    dest: 'dist/assets-static/styles',
+    dest: 'dist/assets/styles',
   },
 }
