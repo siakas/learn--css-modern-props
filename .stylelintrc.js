@@ -6,22 +6,12 @@ module.exports = {
   ],
   rules: {
     'at-rule-no-unknown': null,
-    'function-no-unknown': [
-      true, // g.below() 等、Dart Sass の Mixin 呼び出しでエラーが出るのを回避
-      {
-        ignoreFunctions: ['/^g\\..+/'],
-      },
-    ],
     'scss/at-rule-no-unknown': [
       true,
       // Tailwind CSS 向けの設定
       { ignoreAtRules: ['tailwind', 'layer', 'apply'] },
     ],
-    'function-no-unknown': [
-      true,
-      // Tailwind CSS 向けの設定
-      { ignoreFunctions: ['theme', 'screen'] },
-    ],
+    'function-no-unknown': null, // Dart Sass で不要なエラーが大量に出るため
   },
   ignoreFiles: ['**/node_modules/**'],
 }

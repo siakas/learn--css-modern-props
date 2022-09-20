@@ -1,0 +1,9 @@
+@use "global" as g;
+
+.block-content {
+  margin: 4rem 0 0;
+
+  p:not([class]) {
+    line-height: 1.625; // Tailwind CSS の leading-relaxed の値
+  }
+}

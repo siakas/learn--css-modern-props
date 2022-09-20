@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const { serve } = require('./serve')
+const { html } = require('./html')
 const { styles } = require('./styles')
 const { watch } = require('./watch')
 
@@ -9,6 +10,7 @@ const { watch } = require('./watch')
  * `yarn gulp foo` なら npm scripts 通さずに実行可
 --------------------------------------------- */
 exports.serve = serve
+exports.html = html
 exports.styles = styles
 
 /**
@@ -16,6 +18,6 @@ exports.styles = styles
  * ローカルサーバの起動、各種ファイルの監視およびブラウザ自動更新
 --------------------------------------------- */
 exports.default = gulp.series(
-  gulp.parallel(styles),
+  gulp.parallel(html, styles),
   gulp.parallel(serve, watch)
 )

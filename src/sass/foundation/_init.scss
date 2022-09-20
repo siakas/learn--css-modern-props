@@ -4,8 +4,7 @@ html {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
+  font-family: "Open Sans", "Hiragino Sans", sans-serif;
   font-weight: 400;
   line-height: 1.55;
   word-break: break-word;
@@ -29,23 +28,24 @@ html {
 body {
   padding: 0;
   margin: 0;
+  font-family: inherit;
   font-size: 1rem;
   color: #333;
   background: #fff;
 }
 
-a {
-  color: g.palette("link");
-  text-decoration: underline;
-  background-color: transparent;
+// a {
+//   color: g.palette("link");
+//   text-decoration: underline;
+//   background-color: transparent;
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: g.palette("link", "hover");
-    text-decoration: none;
-  }
-}
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     color: g.palette("link", "hover");
+//     text-decoration: none;
+//   }
+// }
 
 img,
 svg {

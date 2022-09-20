@@ -1,0 +1,12 @@
+{
+  "articles": [
+    {
+      "title": "CSS カスタムプロパティによるマージン制御",
+      "slug": "css-custom-props-margin"
+    },
+    {
+      "title": "ほげほげ",
+      "slug": "sample"
+    }
+  ]
+}
