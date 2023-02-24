@@ -8,7 +8,7 @@ type Props = {
 
 const DefaultLayout: FC<Props> = ({ children }) => {
   return (
-    <Container minW={{ base: '0', md: '7xl' }}>
+    <Container minW={{ base: '0', md: '7xl' }} p={8}>
       <Box display={{ base: 'block', md: 'flex' }} gap={8}>
         <Box as="nav" width={{ base: '100%', md: 'xs' }} p={6} flexShrink={0}>
           <List spacing={4} styleType="none">
@@ -24,7 +24,7 @@ const DefaultLayout: FC<Props> = ({ children }) => {
             </ListItem>
           </List>
         </Box>
-        <Box as="main" p={6}>
+        <Box as="main" pt={12} px={6} pb={6}>
           {children}
         </Box>
       </Box>
