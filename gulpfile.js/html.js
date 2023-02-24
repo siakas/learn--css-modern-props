@@ -4,7 +4,7 @@ const pug = require('gulp-pug')
 const pugGlobbing = require('pug-include-glob')
 const data = require('gulp-data')
 const notify = require('gulp-notify')
-const beautify = require('gulp-beautify')
+const prettier = require('gulp-prettier')
 const browser = require('browser-sync')
 const config = require('../gulp.config')
 
@@ -25,12 +25,6 @@ const PUG_OPTIONS = {
   pretty: true,
   basedir: 'src/pug', // ルート相対で include や extends を利用するためにルートパスを指定
 }
-const BEAUTIFY_OPTIONS = {
-  indent_size: 2,
-  indent_char: ' ',
-  eol: '\n',
-  indent_with_tabs: false,
-}
 const LOAD_DATA = {
   SHEETS: readJSON('src/json/articles.json'),
 }
@@ -48,7 +42,7 @@ const html = () => {
         notify.onError((error) => error.message)
       )
     )
-    .pipe(beautify.html(BEAUTIFY_OPTIONS))
+    .pipe(prettier())
     .pipe(gulp.dest(config.pug.dest))
     .pipe(browser.reload({ stream: true }))
 }

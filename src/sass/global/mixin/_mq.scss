@@ -39,15 +39,15 @@
   $max-width: 0;
 
   @if type-of($from) == number {
-    $min-width: 'min-width: #{$from + 1}px';
+    $min-width: "min-width: #{$from + 1}px";
   } @else {
-    $min-width: 'min-width: #{map-get(v.$breakpoints, $from) + 1}px';
+    $min-width: "min-width: #{map-get(v.$breakpoints, $from) + 1}px";
   }
 
   @if type-of($until) == number {
-    $max-width: 'max-width: #{$until}px'
+    $max-width: "max-width: #{$until}px";
   } @else {
-    $max-width: 'max-width: #{map-get(v.$breakpoints, $until)}px'
+    $max-width: "max-width: #{map-get(v.$breakpoints, $until)}px";
   }
 
   @media screen and ($min-width) and ($max-width) {

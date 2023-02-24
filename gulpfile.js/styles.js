@@ -4,13 +4,14 @@ const notify = require('gulp-notify')
 const sassGlob = require('gulp-sass-glob-use-forward')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
+const mqpacker = require('css-mqpacker')
 const browser = require('browser-sync')
 const config = require('../gulp.config')
 
 /**
  * 設定
 --------------------------------------------- */
-const PROCESSORS = [autoprefixer()]
+const PROCESSORS = [autoprefixer(), mqpacker()]
 const SASS_OPTIONS = {
   outputStyle: 'expanded',
   includePaths: ['src/sass'], // ルートディレクトリを includePaths で指定しておくと、@use の後の相対パスを省略可能
