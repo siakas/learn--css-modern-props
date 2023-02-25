@@ -2,31 +2,43 @@ include /components/**/*
 
 doctype html
 html(lang="ja")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1")
-        meta(name="robots", content="noindex,nofollow")
-        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css")
-        link(rel="stylesheet", href="/assets/styles/base.css")
-        block style
-        title Document
-    body
-        +header
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="robots", content="noindex,nofollow")
+    link(rel="stylesheet", href="/assets/styles/base.css")
+    link(rel="stylesheet", href="/assets/lib/highlightjs/styles/a11y-dark.min.css")
+    block style
+    title Document
+  body
+    .wrapper
+      .container
+        main.main
+          .block-content
+            block content
+              h1 メインタイトル
+              p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere a perspiciatis exercitationem veniam expedita porro eaque. Beatae dolorem totam quae dignissimos illo voluptatem quibusdam ad rerum cupiditate! Consequatur culpa officiis ad, dolorem excepturi sed labore, eligendi quidem iusto animi tenetur iure, neque sequi? Beatae at officia, nulla nisi voluptatum ab laborum eaque quas nihil deserunt eveniet eligendi fuga mollitia hic optio eius velit, sint ullam. Perferendis iste amet quo eius molestiae dolorem dolores corporis natus impedit, itaque magnam nesciunt, fugit totam animi magni at ut necessitatibus tempora nam enim! Impedit nam aut at accusantium suscipit ex harum voluptatem dolorem modi.
+              p Distinctio natus numquam, architecto dolor corrupti reprehenderit aut eveniet ratione consequatur sunt soluta? Consequatur ipsum facere sint cum, doloremque voluptatibus odio neque corrupti enim quidem, nisi nostrum beatae commodi. Placeat, magnam architecto voluptate distinctio quos, exercitationem reiciendis laboriosam quod doloribus quam aliquam dolor laborum consectetur blanditiis? Consequuntur iste in quaerat consequatur obcaecati illo labore odio suscipit dicta temporibus provident repudiandae, nobis sunt quas non, magni totam! Quasi sed provident quidem, hic vitae reiciendis nesciunt eveniet qui repellendus ratione similique fugiat tempore eius, numquam alias, cupiditate vero quis neque ipsum totam recusandae a ipsam obcaecati nobis. Qui omnis ab placeat quo?
+              p Numquam, dicta dolorum blanditiis quam aliquid iure, laudantium eligendi, magni itaque repellendus adipisci! Neque fugiat a praesentium ipsam? Saepe voluptate recusandae fugiat quidem atque. Dignissimos atque corporis cumque sequi laborum iste temporibus tempore voluptates veritatis ratione dolorum, rerum deleniti facere reiciendis quod aliquid obcaecati in excepturi quaerat voluptas qui magnam suscipit perferendis velit. Exercitationem rem labore quaerat earum sed, minus suscipit laborum voluptate aut repellendus aspernatur similique fugiat enim deserunt nostrum illo cumque numquam ex dignissimos. Beatae voluptas exercitationem quia obcaecati illum, facilis velit a maiores fuga impedit at doloremque mollitia sunt omnis soluta amet unde eum, quisquam, distinctio nostrum?
+        aside.side
+          nav
+            ul
+              each post in SHEETS.articles
+                li
+                  a(href=`/articles/${post.slug}.html`)
+                    | #{ post.title }
+    //- section.section
+    //-     .container
+    //-         main
+    //-             .block-title
+    //-                 block title
+    //-                     +page-title("ページタイトル")
+    //-                     +subtitle("My first website with Bulma!")
 
-        section.section
-            .container
-                main
-                    .block-title
-                        block title
-                            +page-title("ページタイトル")
-                            +subtitle("My first website with Bulma!")
+    //-             .block-content
+    //-                 block content
+    //-                     p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, eaque. Consectetur commodi porro natus adipisci! Nostrum alias ipsa illo! Nam nulla perferendis quis ullam, veniam nostrum vero cupiditate sed quae!
 
-                    .block-content
-                        block content
-                            p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, eaque. Consectetur commodi porro natus adipisci! Nostrum alias ipsa illo! Nam nulla perferendis quis ullam, veniam nostrum vero cupiditate sed quae!
-
-                        block back
-                            .buttons.is-centered.mt-6
-                                a.button(href="/") トップへ戻る
-
-        +footer
+    script(src="/assets/lib/highlightjs/highlight.min.js")
+    script.
+      hljs.highlightAll()

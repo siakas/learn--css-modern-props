@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/lib/highlightjs/styles/a11y-dark.min.css" />
+    <link rel="stylesheet" href="/assets/styles/page/aspectratio-objectfit.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main class="main">
+          <div class="block-content">
+            <h1>画像サイズを比率で調整（aspect-ratio と object-fit）</h1>
+            <p>
+              「画像を特定の比率で表示」「画像は表示領域に合わせてフィット」という要件を、以前は
+              <code>background-image</code>
+              と
+              <code>background-size</code>
+              、
+              <code>padding-top</code>
+              などを組み合わせて実現していました。
+            </p>
+            <div class="sample-object">
+              <div class="card-sample1">
+                <div class="item">
+                  <div class="image"><span style="background-image: url('https://picsum.photos/id/237/600/400')"></span></div>
+                  <div class="text">
+                    <p>テキストテキスト</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><span style="background-image: url('https://picsum.photos/id/237/600/400')"></span></div>
+                  <div class="text">
+                    <p>テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><span style="background-image: url('https://picsum.photos/id/237/600/400')"></span></div>
+                  <div class="text">
+                    <p>テキストテキスト</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              上記のサンプルは以下のコードで実現しています（関係のないコードは省略しています）。
+              <br />
+              サムネイル画像は
+              <code>16:9</code>
+              のアスペクト比になるよう
+              <code>padding-top</code>
+              の値を設定しています。
+            </p>
+            <pre><code class="html">&lt;div class=&quot;card-sample1&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;
+    &lt;div class=&quot;image&quot;&gt;
+      &lt;span style=&quot;background-image: url(&#39;https://picsum.photos/id/237/600/400&#39;)&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;text&quot;&gt;
+      &lt;p&gt;テキストテキスト&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <pre><code class="scss">.card-sample1 {
+  .image {
+    overflow: hidden;
+
+    span {
+      display: block;
+      padding-top: 56.25%;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
+</code></pre>
+            <h2>今はこう書ける</h2>
+            <p>
+              「画像を特定の比率で表示」は
+              <code>aspect-ratio</code>
+              プロパティ、「画像は表示領域に合わせてフィット」は
+              <code>object-fit</code>
+              プロパティを使うことで、よりシンプルに実現できます。
+            </p>
+            <p>
+              下記のコードなら画像を背景画像ではなく
+              <code>img</code>
+              要素として扱うことができるので、
+              <code>loading</code>
+              属性を設定するなど、より柔軟に取り扱うことができます。
+            </p>
+            <div class="sample-object">
+              <div class="card-sample2">
+                <div class="item">
+                  <div class="image"><img src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>テキストテキスト</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><img src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>テキストテキスト</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><img src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>テキストテキスト</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;card-sample2&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;
+    &lt;div class=&quot;image&quot;&gt;
+      &lt;img src=&quot;https://picsum.photos/id/237/600/400&quot; alt=&quot;&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;text&quot;&gt;
+      &lt;p&gt;テキストテキスト&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <pre><code class="scss">.card-sample2 {
+  .image {
+    img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  }
+}
+</code></pre>
+            <h2>その他のメジャーなアスペクト比</h2>
+            <div class="sample-object">
+              <div class="card-sample3">
+                <div class="item">
+                  <div class="image"><img class="aspect1" src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>16:9</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><img class="aspect2" src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>4:3</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><img class="aspect3" src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>3:2</p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><img class="aspect4" src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>
+                      黄金比（1:1.618）
+                      <br />
+                      <span>※CSS では横長になるよう指定</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="image"><img class="aspect5" src="https://picsum.photos/id/237/600/400" alt="" /></div>
+                  <div class="text">
+                    <p>
+                      白銀比（1:1.414）
+                      <br />
+                      <span>※CSS では横長になるよう指定</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <aside class="side">
+          <nav>
+            <ul>
+              <li><a href="/articles/css-custom-props-margin.html">CSS カスタムプロパティによるマージン制御</a></li>
+              <li><a href="/articles/sample.html">ほげほげ</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <script src="/assets/lib/highlightjs/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+@use "global" as g;
+
+.main {
+  flex-grow: 1;
+  order: 2;
+  max-width: 850px;
+  padding: 24px 0 0;
+  line-height: 1.7;
+}

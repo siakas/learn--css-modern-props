@@ -1,6 +1,10 @@
 {
   "articles": [
     {
+      "title": "画像サイズを比率で調整（aspect-ratio と object-fit）",
+      "slug": "aspectratio-objectfit"
+    },
+    {
       "title": "CSS カスタムプロパティによるマージン制御",
       "slug": "css-custom-props-margin"
     },
