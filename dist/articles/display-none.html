@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/lib/highlightjs/styles/a11y-dark.min.css" />
+    <link rel="stylesheet" href="/assets/styles/page/display-none.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main class="main">
+          <div class="block-content">
+            <h1>表示／非表示の切り替えのための `display: none`</h1>
+            <p>
+              ある要素の表示と非表示の切り替えを CSS でおこなう際、
+              <code>display: block</code>
+              と
+              <code>display: none</code>
+              とで切り替えの指定をすることがあります。
+            </p>
+            <div class="sample-object">
+              <div class="toggle">
+                <div class="flex">
+                  <button id="show1">表示</button>
+                  <button id="hide1">非表示</button>
+                </div>
+                <div class="obj1" id="target1"></div>
+              </div>
+            </div>
+            <pre><code class="scss">.obj {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+</code></pre>
+            <p>
+              しかし
+              <code>display: block</code>
+              と
+              <code>display: none;</code>
+              による切り替えはスタイルの指定が冗長であるだけでなく、
+              <code>display: block</code>
+              に切り替えた要素に、元々は
+              <code>display: flex</code>
+              が適用されていた場合などでは思わぬ表示崩れの原因になることもあります。
+            </p>
+            <h2>今はこう書ける</h2>
+            <p>
+              今は
+              <code>:not()</code>
+              を使うことでよりシンプルに、
+              <code>display: none</code>
+              の指定のみで切り替えのスタイルを制御できます。
+            </p>
+            <div class="sample-object">
+              <div class="toggle">
+                <div class="flex">
+                  <button id="show2">表示</button>
+                  <button id="hide2">非表示</button>
+                </div>
+                <div class="obj2" id="target2"></div>
+              </div>
+            </div>
+            <pre><code class="scss">.obj {
+  &:not(.is-active) {
+    display: none;
+  }
+}
+</code></pre>
+          </div>
+        </main>
+        <aside class="side">
+          <nav>
+            <ul>
+              <li><a href="/articles/gap.html">Flex や Gtid の余白調整</a></li>
+              <li><a href="/articles/grid.html">複数行で並べるブロック</a></li>
+              <li><a href="/articles/inset.html">top / right / bottom / left をまとめて指定</a></li>
+              <li><a href="/articles/aspectratio-objectfit.html">画像サイズを比率で調整（aspect-ratio と object-fit）</a></li>
+              <li><a href="/articles/clamp.html">最小値と最大値の設定（あと推奨値）</a></li>
+              <li><a href="/articles/margin.html">中央揃えのための `margin: 0 auto`</a></li>
+              <li><a href="/articles/display-none.html">表示／非表示の切り替えのための `display: none`</a></li>
+              <li><a href="/articles/place-items.html">天地中央</a></li>
+              <li><a href="/articles/text-align-last.html">一行テキストの均等割付</a></li>
+              <li><a href="/articles/smooth-scroll.html">スムーススクロール</a></li>
+              <li><a href="/articles/css-custom-props-margin.html">CSS カスタムプロパティによるマージン制御</a></li>
+              <li><a href="/articles/sample.html">ほげほげ</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <script src="/assets/lib/highlightjs/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll()
+    </script>
+    <script src="/assets/scripts/display-none.js"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/lib/highlightjs/styles/a11y-dark.min.css" />
+    <link rel="stylesheet" href="/assets/styles/page/margin.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main class="main">
+          <div class="block-content">
+            <h1>中央揃えのための `margin: 0 auto`</h1>
+            <p>
+              あるブロック要素を左右から中央揃えにする場合、
+              <code>margin: 0 auto</code>
+              という書き方をすることがよくあります。
+            </p>
+            <div class="sample-object">
+              <div class="container">
+                <div class="box"></div>
+              </div>
+            </div>
+            <pre><code class="scss">.box {
+  width: 240px;
+  height: 200px;
+  margin: 0 auto;
+}
+</code></pre>
+            <p>
+              実はこれ、
+              <code>margin-top</code>
+              と
+              <code>margin-bottom</code>
+              の値が
+              <code>auto</code>
+              の時は
+              <code>0</code>
+              が割り当てられると CSS の仕様書に記載されているため、
+              <code>margin: auto</code>
+              としても同じ内容になります。
+            </p>
+            <div class="sample-object">
+              <div class="container">
+                <div class="box2"></div>
+              </div>
+            </div>
+            <pre><code class="scss">.box2 {
+  width: 240px;
+  height: 200px;
+  margin: auto; // これでOK
+}
+</code></pre>
+            <p>
+              最近は
+              <code>margin: auto</code>
+              で書かれているスタイルを目にすることも多いので、書き方を見直すのもアリでしょう。
+            </p>
+          </div>
+        </main>
+        <aside class="side">
+          <nav>
+            <ul>
+              <li><a href="/articles/gap.html">Flex や Gtid の余白調整</a></li>
+              <li><a href="/articles/grid.html">複数行で並べるブロック</a></li>
+              <li><a href="/articles/inset.html">top / right / bottom / left をまとめて指定</a></li>
+              <li><a href="/articles/aspectratio-objectfit.html">画像サイズを比率で調整（aspect-ratio と object-fit）</a></li>
+              <li><a href="/articles/clamp.html">最小値と最大値の設定（あと推奨値）</a></li>
+              <li><a href="/articles/margin.html">中央揃えのための `margin: 0 auto`</a></li>
+              <li><a href="/articles/display-none.html">表示／非表示の切り替えのための `display: none`</a></li>
+              <li><a href="/articles/place-items.html">天地中央</a></li>
+              <li><a href="/articles/text-align-last.html">一行テキストの均等割付</a></li>
+              <li><a href="/articles/smooth-scroll.html">スムーススクロール</a></li>
+              <li><a href="/articles/css-custom-props-margin.html">CSS カスタムプロパティによるマージン制御</a></li>
+              <li><a href="/articles/sample.html">ほげほげ</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <script src="/assets/lib/highlightjs/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll()
+    </script>
+  </body>
+</html>

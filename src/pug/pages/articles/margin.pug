@@ -1,0 +1,51 @@
+extends /layouts/default
+
+block style
+  +page-style('margin')
+
+block content
+  h1 中央揃えのための `margin: 0 auto`
+
+  p あるブロック要素を左右から中央揃えにする場合、
+    code margin: 0 auto
+    | という書き方をすることがよくあります。
+
+  .sample-object
+    .container
+      .box
+
+  pre
+    code.scss.
+      .box {
+        width: 240px;
+        height: 200px;
+        margin: 0 auto;
+      }
+
+  p 実はこれ、
+    code margin-top
+    | と
+    code margin-bottom
+    | の値が
+    code auto
+    | の時は
+    code 0
+    | が割り当てられると CSS の仕様書に記載されているため、
+    code margin: auto
+    | としても同じ内容になります。
+
+  .sample-object
+    .container
+      .box2
+
+  pre
+    code.scss.
+      .box2 {
+        width: 240px;
+        height: 200px;
+        margin: auto; // これでOK
+      }
+
+  p 最近は
+    code margin: auto
+    | で書かれているスタイルを目にすることも多いので、書き方を見直すのもアリでしょう。

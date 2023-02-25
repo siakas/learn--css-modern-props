@@ -27,18 +27,8 @@ html(lang="ja")
                 li
                   a(href=`/articles/${post.slug}.html`)
                     | #{ post.title }
-    //- section.section
-    //-     .container
-    //-         main
-    //-             .block-title
-    //-                 block title
-    //-                     +page-title("ページタイトル")
-    //-                     +subtitle("My first website with Bulma!")
-
-    //-             .block-content
-    //-                 block content
-    //-                     p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, eaque. Consectetur commodi porro natus adipisci! Nostrum alias ipsa illo! Nam nulla perferendis quis ullam, veniam nostrum vero cupiditate sed quae!
 
     script(src="/assets/lib/highlightjs/highlight.min.js")
     script.
       hljs.highlightAll()
+    block scripts

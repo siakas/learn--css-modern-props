@@ -10,11 +10,12 @@
 
   ul {
     font-size: g.rem(15);
+    line-height: 1.5;
   }
 
   li {
     & + li {
-      margin-top: 1em;
+      margin-top: 2em;
     }
   }
 
