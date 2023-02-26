@@ -1,0 +1,16 @@
+@use "global" as g;
+
+.back-index {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+
+  > a {
+    display: block;
+    padding: 16px 32px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+  }
+}

@@ -2,43 +2,53 @@
   "articles": [
     {
       "title": "Flexbox の余白調整",
-      "slug": "gap"
+      "slug": "gap",
+      "description": "CSS Grid だけでなく Flexbox でも余白調整には gap を使えます"
     },
     {
       "title": "天地中央",
-      "slug": "place-items"
+      "slug": "place-items",
+      "description": "天地中央への配置は Flexbox や CSS Grid を使ってシンプルに"
     },
     {
       "title": "top / right / bottom / left をまとめて指定",
-      "slug": "inset"
+      "slug": "inset",
+      "description": "top / right / bottom / left への指定はまとめて inset で"
     },
     {
       "title": "画像サイズを比率で調整（aspect-ratio と object-fit）",
-      "slug": "aspectratio-objectfit"
+      "slug": "aspectratio-objectfit",
+      "description": "要素のサイズは aspect-ratio を使って比率で指定"
     },
     {
       "title": "最小値・推奨値・最大値の設定",
-      "slug": "clamp"
+      "slug": "clamp",
+      "description": "最小値と最大値の間で可変する値は clamp() で指定できます"
     },
     {
       "title": "中央揃えのための `margin: 0 auto`",
-      "slug": "margin"
+      "slug": "margin",
+      "description": "中央揃えの margin に 0 は不要です"
     },
     {
       "title": "表示／非表示の切り替えのための `display: none`",
-      "slug": "display-none"
+      "slug": "display-none",
+      "description": "ある条件下へのスタイル指定は :not() を使ってシンプルに"
     },
     {
       "title": "一行テキストの両端揃え",
-      "slug": "text-align-last"
+      "slug": "text-align-last",
+      "description": "全角スペースを使っての字間の調整はもう不要です"
     },
     {
       "title": "スムーススクロール",
-      "slug": "smooth-scroll"
+      "slug": "smooth-scroll",
+      "description": "簡単なスムーススクロールなら CSS だけで実現できるように"
     },
     {
       "title": "独立した translate / scale / rotate",
-      "slug": "transform"
+      "slug": "transform",
+      "description": "transform の一部の関数が CSS プロパティになりました"
     }
   ]
 }

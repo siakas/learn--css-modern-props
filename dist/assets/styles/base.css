@@ -472,7 +472,15 @@ button {
   order: 1;
   width: 240px;
 }
+.side .logo {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.side .logo a {
+  color: #319795;
+}
 .side ul {
+  margin: 24px 0 0;
   font-size: 0.9375rem;
   line-height: 1.5;
 }
@@ -489,6 +497,20 @@ button {
   max-width: 1200px;
   padding: 40px 15px;
   margin: auto;
+}
+
+.back-index {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+.back-index > a {
+  display: block;
+  padding: 16px 32px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #ddd;
+  border-radius: 8px;
 }
 
 .block-content h1 {
@@ -537,10 +559,10 @@ button {
   margin: 1.6em 0 0 1.6em;
   list-style: decimal;
 }
-.block-content :is(ul, ol) li {
+.block-content :is(ul:not([class]), ol:not([class])) li {
   list-style: inherit;
 }
-.block-content :is(ul, ol) li:not(:first-child) {
+.block-content :is(ul:not([class]), ol:not([class])) li:not(:first-child) {
   margin-top: 0.2em;
 }
 .block-content pre {
@@ -553,6 +575,45 @@ button {
 .block-content pre code.hljs {
   padding: 1.6em;
   font-family: inherit;
+}
+
+.block-content .home-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 0;
+  margin: 32px 0 0;
+  list-style: none;
+}
+.block-content .home-index li {
+  display: flex;
+  width: calc((100% - 32px) / 2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.block-content .home-index h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #319795;
+}
+.block-content .home-index h2::before {
+  display: none;
+}
+.block-content .home-index p {
+  margin: 0.5em 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.block-content .home-index a {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid #ddd;
+  border-radius: 8px;
 }
 
 .index-articles {
