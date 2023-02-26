@@ -1,0 +1,7 @@
+@use "global/vars" as v;
+
+@mixin transition($p: all, $s: 0.25, $fn: v.$ease-out-quint) {
+  transition-timing-function: $fn;
+  transition-duration: $s * 1s;
+  transition-property: $p;
+}

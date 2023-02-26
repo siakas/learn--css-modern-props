@@ -1,0 +1,106 @@
+extends /layouts/default
+
+block style
+  +page-style('smooth-scroll')
+
+block content
+  h1 スムーススクロール
+
+  p これまではページ内のアンカーリンクなどをなめらかにスクロールさせるには、JavaScript を使って指定するしかありませんでしたが、今は
+    code scroll-behavior
+    | というプロパティを使うことで、CSS のみでスムーススクロールを実現できるようになりました。
+
+  h2 今はこう書ける
+
+  p
+    | スクロールする要素に対して
+    code scroll-behavior: smooth
+    | とすることで、なめらかなスムーススクロールを実現できます。
+    br
+    | 最近のサイトでは
+    code html
+    | 要素にこのプロパティの指定が入っているのを多く見かけるようになりました。
+
+  .sample-object
+    .wrapper
+      .header
+        a(href="#a") A
+        a(href="#b") B
+        a(href="#c") C
+      #a.section
+        h1 Section A
+      #b.section
+        h1 Section B
+      #c.section
+        h1 Section C
+
+  pre
+    code.html.
+      &lt;div class=&quot;wrapper&quot;&gt;
+        &lt;div class=&quot;header&quot;&gt;
+          &lt;a href=&quot;#a&quot;&gt;A&lt;/a&gt;
+          &lt;a href=&quot;#b&quot;&gt;B&lt;/a&gt;
+          &lt;a href=&quot;#c&quot;&gt;C&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;section&quot; id=&quot;a&quot;&gt;
+          &lt;h1&gt;Section A&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;section&quot; id=&quot;b&quot;&gt;
+          &lt;h1&gt;Section B&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;section&quot; id=&quot;c&quot;&gt;
+          &lt;h1&gt;Section C&lt;/h1&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .wrapper {
+        scroll-behavior: smooth;
+      }
+
+  h2 さらに調整
+
+  p 上記の例で CSS だけでのスムーススクロールを実現できましたが、スクロール後に固定ヘッダとスクロールした要素が重なってしまっています。これを避けるためのスクロール位置調整もこれまでは JavaScript でおこなっていましたが、今はこれも CSS で解決できます。
+
+  p
+    code scroll-margin
+    | か
+    code scroll-padding
+    | を使用します。
+    code scroll-margin
+    | は子要素であるスクロールするコンテンツに対して指定するプロパティで、
+    code scroll-padding
+    | は親要素であるスクロールコンテナに対して指定するプロパティという違いがあります。
+
+  p 以下の例ではスクロールコンテナである
+    code .new-wrapper
+    | に対して、
+    code scroll-behavior: smooth
+    | と、固定ヘッダの高さと同じサイズで
+    code scroll-padding-top: 60px
+    | を指定しています。
+
+  .sample-object
+    .new-wrapper
+      .header
+        a(href="#aa") A
+        a(href="#bb") B
+        a(href="#cc") C
+      #aa.section
+        h1 Section A
+      #bb.section
+        h1 Section B
+      #cc.section
+        h1 Section C
+
+  pre
+    code.scss.
+      .new-wrapper {
+        scroll-behavior: smooth;
+        scroll-padding-top: 60px;
+      }
+
+      .header {
+        height: 60px;
+      }

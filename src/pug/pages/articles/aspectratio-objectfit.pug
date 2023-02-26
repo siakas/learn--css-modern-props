@@ -1,0 +1,167 @@
+extends /layouts/default
+
+block style
+  +page-style('aspectratio-objectfit')
+
+block content
+  h1 画像サイズを比率で調整（aspect-ratio と object-fit）
+
+  p 「画像を特定の比率で表示」「画像は表示領域に合わせてフィット」という要件を、以前は
+    code background-image
+    | と
+    code background-size
+    | 、
+    code padding-top
+    | などを組み合わせて実現していました。
+
+  .sample-object
+    .card-sample1
+      .item
+        .image
+          span(style={ "background-image": "url('https://picsum.photos/id/237/600/400')" })
+        .text
+          p テキストテキスト
+      .item
+        .image
+          span(style={ "background-image": "url('https://picsum.photos/id/237/600/400')" })
+        .text
+          p テキストテキストテキストテキストテキストテキスト
+      .item
+        .image
+          span(style={ "background-image": "url('https://picsum.photos/id/237/600/400')" })
+        .text
+          p テキストテキスト
+
+  p 上記のサンプルは以下のコードで実現しています（関係のないコードは省略しています）。
+    br
+    | サムネイル画像は
+    code 16:9
+    | のアスペクト比になるよう
+    code padding-top
+    | の値を設定しています。
+
+  pre
+    code.html.
+      &lt;div class=&quot;card-sample1&quot;&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          &lt;div class=&quot;image&quot;&gt;
+            &lt;span style=&quot;background-image: url(&#39;https://picsum.photos/id/237/600/400&#39;)&quot;&gt;&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;text&quot;&gt;
+            &lt;p&gt;テキストテキスト&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .card-sample1 {
+        .image {
+          overflow: hidden;
+
+          span {
+            display: block;
+            padding-top: 56.25%;
+            background-position: center;
+            background-size: cover;
+          }
+        }
+      }
+
+  h2 今はこう書ける
+
+  p 「画像を特定の比率で表示」は
+    code aspect-ratio
+    | プロパティ、「画像は表示領域に合わせてフィット」は
+    code object-fit
+    | プロパティを使うことで、よりシンプルに実現できます。
+
+  p 下記のコードなら画像を背景画像ではなく
+    code img
+    | 要素として扱うことができるので、
+    code loading
+    | 属性を設定するなど、より柔軟に取り扱うことができます。
+
+  .sample-object
+    .card-sample2
+      .item
+        .image
+          img(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p テキストテキスト
+      .item
+        .image
+          img(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p テキストテキスト
+      .item
+        .image
+          img(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p テキストテキスト
+
+  pre
+    code.html.
+      &lt;div class=&quot;card-sample2&quot;&gt;
+        &lt;div class=&quot;item&quot;&gt;
+          &lt;div class=&quot;image&quot;&gt;
+            &lt;img src=&quot;https://picsum.photos/id/237/600/400&quot; alt=&quot;&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;text&quot;&gt;
+            &lt;p&gt;テキストテキスト&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .card-sample2 {
+        .image {
+          img {
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+          }
+        }
+      }
+
+  p また
+    code aspect-ratio
+    | プロパティは
+    code img
+    | 要素に限らないため、
+    code iframe
+    | 要素に指定して YouTube 動画の縦横比を制御することもできます。もちろん、その他のブロック要素に指定することも可能です。
+
+  h2 その他のメジャーなアスペクト比
+
+  .sample-object
+    .card-sample3
+      .item
+        .image
+          img.aspect1(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p 16:9
+      .item
+        .image
+          img.aspect2(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p 4:3
+      .item
+        .image
+          img.aspect3(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p 3:2
+      .item
+        .image
+          img.aspect4(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p 黄金比（1:1.618）
+            br
+            span ※CSS では横長になるよう指定
+      .item
+        .image
+          img.aspect5(src="https://picsum.photos/id/237/600/400", alt="")
+        .text
+          p 白銀比（1:1.414）
+            br
+            span ※CSS では横長になるよう指定

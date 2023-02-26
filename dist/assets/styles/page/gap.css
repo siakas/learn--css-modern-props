@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+/**
+ * 参考：matthewlein.com/ceaser/
+ */ /**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+/**
+ * 単位を除去して数値のみを取り出す
+ * 参照: https://css-tricks.com/snippets/sass/strip-unit-function/
+--------------------------------------------- */
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+:is(.sample-object) .old-flex {
+  display: flex;
+  margin: auto -8px;
+}
+:is(.sample-object) .old-flex .obj {
+  width: calc((100% - 48px) / 3);
+  height: 100px;
+  margin: 0 8px;
+  background-color: #c00;
+}
+:is(.sample-object) .new-flex {
+  display: flex;
+  gap: 16px;
+}
+:is(.sample-object) .new-flex + .new-flex {
+  margin-top: 16px;
+}
+:is(.sample-object) .new-flex .obj {
+  flex: 1;
+  height: 100px;
+  background-color: #09c;
+}
+:is(.sample-object) .new-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 16px;
+}
+:is(.sample-object) .new-flex-wrap .obj {
+  flex-grow: 1;
+  width: 30%;
+  height: 100px;
+  background-color: #09c;
+}
+/*# sourceMappingURL=gap.css.map */

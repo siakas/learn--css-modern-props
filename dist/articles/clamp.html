@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/lib/highlightjs/styles/a11y-dark.min.css" />
+    <link rel="stylesheet" href="/assets/styles/page/clamp.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main class="main">
+          <div class="block-content">
+            <h1>最小値・推奨値・最大値の設定</h1>
+            <p>
+              たとえばあるボックスの幅を、親要素に対して
+              <code>70%</code>
+              と設定し、そのうえで最小幅を
+              <code>200px</code>
+              、最大幅を
+              <code>500px</code>
+              と設定しておきたい場合、以下のようなスタイルを指定することになります。
+            </p>
+            <div class="sample-object">
+              <div class="old-box"></div>
+            </div>
+            <pre><code class="scss">.box {
+  width: 70%;
+  min-width: 200px;
+  max-width: 500px;
+  margin: auto;
+}
+</code></pre>
+            <p>
+              このように、なんらかのプロパティに対して（上記の例では幅）「最小値」「推奨値」「最大値」を設定したい場合、
+              <code>clamp()</code>
+              関数を利用することで、それらの値をまとめて設定することができます。
+            </p>
+            <h2>今はこう書ける</h2>
+            <p>
+              <code>clamp()</code>
+              関数は引数として、左から「最小値」「推奨値」「最大値」の 3 つの値をとります。
+            </p>
+            <div class="sample-object">
+              <div class="new-box"></div>
+            </div>
+            <pre><code class="scss">.box {
+  width: clamp(200px, 70%, 500px);
+  margin: auto;
+}
+</code></pre>
+            <h2>clamp() の利用</h2>
+            <p>
+              <code>clamp()</code>
+              関数と
+              <code>vw</code>
+              などの可変の単位を併用することで、最小値と最大値を制限したうえでその間で推奨値を変化させることができます。たとえばビューポートの幅に応じて
+              <code>font-size</code>
+              を
+              <code>16px</code>
+              と
+              <code>24px</code>
+              の間で可変させるには、次のように指定することができます。
+            </p>
+            <div class="sample-object">
+              <p class="text">先日の台風19号の被害により、千葉県南部では停電が続いています。復旧作業は緊急に行われておりますが、まだまだ多くの方々が困難な状況に置かれています。関係各所では、被災地への支援物資や食料品の提供が行われております。</p>
+            </div>
+            <pre><code class="scss">.text {
+  font-size: clamp(1rem, 1vw, 1.5rem);
+}
+</code></pre>
+            <p>
+              このような
+              <code>clamp()</code>
+              関数とビューポートを組み合わせた指定は、下記のようなジェネレータサイトが便利です。活用してみてください。
+              <br />
+              <a href="https://min-max-calculator.9elements.com/" target="_blank" rel="noopener noreferrer">Min-Max-Value Interpolation</a>
+            </p>
+          </div>
+        </main>
+        <aside class="side">
+          <nav>
+            <ul>
+              <li><a href="/articles/gap.html">Flexbox の余白調整</a></li>
+              <li><a href="/articles/place-items.html">天地中央</a></li>
+              <li><a href="/articles/inset.html">top / right / bottom / left をまとめて指定</a></li>
+              <li><a href="/articles/aspectratio-objectfit.html">画像サイズを比率で調整（aspect-ratio と object-fit）</a></li>
+              <li><a href="/articles/clamp.html">最小値・推奨値・最大値の設定</a></li>
+              <li><a href="/articles/margin.html">中央揃えのための `margin: 0 auto`</a></li>
+              <li><a href="/articles/display-none.html">表示／非表示の切り替えのための `display: none`</a></li>
+              <li><a href="/articles/text-align-last.html">一行テキストの両端揃え</a></li>
+              <li><a href="/articles/smooth-scroll.html">スムーススクロール</a></li>
+              <li><a href="/articles/transform.html">独立した translate / scale / rotate</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <script src="/assets/lib/highlightjs/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll()
+    </script>
+  </body>
+</html>

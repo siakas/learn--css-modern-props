@@ -1,0 +1,105 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .card-sample1 {
+    display: flex;
+    gap: 16px;
+
+    .item {
+      flex: 1;
+    }
+
+    .image {
+      overflow: hidden;
+
+      span {
+        display: block;
+        padding-top: 56.25%;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+
+    .text {
+      margin: 0.6em 0 0;
+
+      p {
+        font-size: g.rem(14);
+        line-height: 1.45;
+      }
+    }
+  }
+
+  .card-sample2 {
+    display: flex;
+    gap: 16px;
+
+    .item {
+      flex: 1;
+    }
+
+    .image {
+      img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+    }
+
+    .text {
+      margin: 0.6em 0 0;
+
+      p {
+        font-size: g.rem(14);
+        line-height: 1.45;
+      }
+    }
+  }
+
+  .card-sample3 {
+    display: flex;
+    gap: 8px;
+
+    .item {
+      flex: 1;
+    }
+
+    .image {
+      img {
+        object-fit: cover;
+
+        &.aspect1 {
+          aspect-ratio: 16 / 9;
+        }
+
+        &.aspect2 {
+          aspect-ratio: 4 / 3;
+        }
+
+        &.aspect3 {
+          aspect-ratio: 3 / 2;
+        }
+
+        &.aspect4 {
+          aspect-ratio: 1.618 / 1;
+        }
+
+        &.aspect5 {
+          aspect-ratio: 1.414 / 1;
+        }
+      }
+    }
+
+    .text {
+      margin: 0.6em 0 0;
+
+      p {
+        font-size: g.rem(14);
+        line-height: 1.45;
+
+        span {
+          font-size: g.rem(11);
+        }
+      }
+    }
+  }
+}

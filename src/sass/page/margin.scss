@@ -1,0 +1,19 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .container {
+    .box {
+      width: 240px;
+      height: 200px;
+      margin: 0 auto;
+      background: #c00;
+    }
+
+    .box2 {
+      width: 240px;
+      height: 200px;
+      margin: auto;
+      background: #09c;
+    }
+  }
+}

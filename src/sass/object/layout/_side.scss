@@ -1,0 +1,27 @@
+@use "global" as g;
+
+.side {
+  flex-shrink: 0;
+  order: 1;
+  width: 240px;
+
+  nav {
+  }
+
+  ul {
+    font-size: g.rem(15);
+    line-height: 1.5;
+  }
+
+  li {
+    & + li {
+      margin-top: 2em;
+    }
+  }
+
+  a {
+    font-weight: bold;
+    color: #555;
+    text-decoration: none;
+  }
+}

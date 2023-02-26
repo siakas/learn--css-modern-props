@@ -1,0 +1,152 @@
+@use "global" as g;
+
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    sans-serif;
+  font-weight: 400;
+  line-height: 1.55;
+  word-break: break-word;
+  word-wrap: break-word; // overflow-wrap の旧名称。元々は IE の独自実装
+  overflow-wrap: break-word; // word-wrap プロパティが CSS3 で改称されたもの
+  tab-size: 4;
+  -webkit-tap-highlight-color: transparent; // 標準化予定のない独自プロパティ
+  text-size-adjust: 100%;
+
+  @include g.below(md) {
+    overflow-x: hidden;
+  }
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #333;
+  background: #fff;
+}
+
+a {
+  color: #319795;
+  text-decoration: underline;
+  background-color: transparent;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+img,
+svg {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+figure {
+  margin: 0;
+}
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console",
+    Consolas, Courier, monospace;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+p {
+  max-height: 100%;
+  margin: 0;
+}
+
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  // list-style-type: none によるリストマーカーのリセットは li 要素のみで指定し、
+  // 個別に指定したい場合はコンポーネントごとに inherit に変更する
+  list-style-type: none;
+}
+
+hr {
+  display: none;
+}
+
+main {
+  display: block;
+}
+
+input,
+textarea,
+button,
+optgroup,
+select {
+  margin: 0;
+  font: inherit;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+// スムーススクロール後のキーボードフォーカス遷移のために、
+// 動的に tabindex を設定した要素にはアウトラインを表示しない
+[tabindex="-1"],
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+// iOS でフォーム入力中に画面が自動ズームするのを回避
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  @include g.below(md) {
+    font-size: 16px !important;
+  }
+}

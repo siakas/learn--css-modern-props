@@ -3,8 +3,31 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    // ファイル保存時、ESLint による自動フォーマット
+    "source.fixAll.eslint": true,
+
+    // ファイル保存時、Stylelint による自動フォーマット
+    "source.fixAll.stylelint": true
   },
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+
+  // VS Code の CSS, SCSS の Lint オフ
+  // Stylelint とのバッティング回避
+  "css.validate": false,
+  "scss.validate": false,
+
+  // Stylelint のフォーマットを実行する拡張子を指定
+  "stylelint.validate": ["css", "scss", "postcss"],
+
+  // Stylelint の実行パスを指定（Path 指定がないとローカル環境で Stylelint が動作しない場合がある）
+  "stylelint.stylelintPath": "node_modules/stylelint",
+
+  // JSX でも CSS クラスを補完できるように
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
   "[json]": {
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false

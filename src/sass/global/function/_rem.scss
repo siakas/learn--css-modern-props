@@ -1,0 +1,12 @@
+@use "global/vars" as v;
+@use "global/function/strip-unit" as f;
+@use "sass:math";
+
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+@function rem($pixel) {
+  $pixel: f.strip-unit($pixel);
+  @return math.div($pixel, 16) * 1rem;
+}

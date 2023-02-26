@@ -1,0 +1,219 @@
+extends /layouts/default
+
+block style
+  +page-style('place-items')
+
+block content
+  h1 天地中央
+
+  p ある要素を親要素の天地中央に配置したい場合、いくつかの方法があります。
+    br
+    | かつてよく使われていたのは、
+    code position: absolute
+    | と
+    code translate
+    | を組み合わせる方法でしょう。
+
+  .sample-object
+    .container1
+      .box
+
+  pre
+    code.html.
+      &lt;div class=&quot;container1&quot;&gt;
+        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .container1 {
+        position: relative;
+        height: 300px;
+
+        .box {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100px;
+          height: 100px;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+  p このスタイルは親要素に対して子要素の位置を
+    code position
+    | と
+    code translate
+    | で指定することになるため、複数の要素を天地中央で並べることはできません。その場合は、以下のように天地中央に配置する要素の中で、さらにレイアウト指定をする工夫が必要になり、スタイル指定が複雑になります。
+
+  .sample-object
+    .circle
+      .wrapper
+        span
+
+  pre
+    code.html.
+      &lt;div class=&quot;circle&quot;&gt;
+        &lt;div class=&quot;wrapper&quot;&gt;
+          &lt;span&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .circle {
+        position: relative;
+        width: 48px;
+        height: 48px;
+
+        .wrapper {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 24px;
+          height: 14px;
+          transform: translate(-50%, -50%);
+
+          span {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin: 6px 0 0;
+
+            &::before,
+            &::after {
+              position: absolute;
+              display: block;
+              width: 100%;
+              height: 2px;
+              content: "";
+            }
+
+            &::before {
+              transform: translateY(-6px);
+            }
+
+            &::after {
+              transform: translateY(6px);
+            }
+          }
+        }
+      }
+
+  p そこで
+    code display: flex
+    | を使うことで、もっとシンプルに天地中央を実現できるようになります。
+
+  h2 flex を使った天地中央
+
+  p 親要素に
+    code display: flex
+    | を指定し、
+    code justify-content: center
+    | と
+    code align-items: center
+    | をあわせて指定することで、子要素が縦方向と横方向それぞれの中央に配置されます。
+
+  .sample-object
+    .circle2
+      span
+
+  pre
+    code.html.
+      &lt;div class=&quot;circle&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+
+        span {
+          position: relative;
+          display: block;
+          width: 24px;
+          height: 2px;
+
+          &::before,
+          &::after {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 2px;
+            content: "";
+          }
+
+          &::before {
+            transform: translateY(-6px);
+          }
+
+          &::after {
+            transform: translateY(6px);
+          }
+        }
+      }
+
+  p だいぶシンプルになりましたが、IE を無視できるようになった現在では、
+    code display: grid
+    | を使うことで、さらにシンプルな記述ができます。
+
+  h2 今はこう書ける
+
+  p 前述の
+    code .circle
+    | に指定していた、
+
+  pre
+    code.scss.
+      .circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+  p の部分を、
+    code display: grid
+    | と
+    code place-items: center
+    | を使って、下記のように書き換えることができます。
+
+  pre
+    code.scss.
+      .circle {
+        display: grid;
+        place-items: center;
+      }
+
+  .sample-object
+    .circle3
+      span
+
+  p
+    code place-items
+    | プロパティは、
+    code align-items
+    | と
+    code justify-items
+    | プロパティを一括で指定するプロパティで、この値を
+    code center
+    | としてやることで
+    code display: grid
+    | の子要素を天地中央に配置することができます。
+
+  p なお、
+    code display: flex
+    | では
+    code justify-items
+    | プロパティが機能しないため、
+    code place-items
+    | プロパティを意図通りに利用することはできません。
+    code place-items: center
+    | を使う場合は
+    code display: grid
+    | と併用するよう注意してください。

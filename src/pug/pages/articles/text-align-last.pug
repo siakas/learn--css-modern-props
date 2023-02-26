@@ -1,0 +1,90 @@
+extends /layouts/default
+
+block style
+  +page-style('text-align-last')
+
+block content
+  h1 一行テキストの両端揃え
+
+  p 特定のテーブルセルのテキストを両端揃えにしたいことがありますが、これまでは特に対応しないか、あるいは無理に全角スペースで調整していました。
+  p 全角スペースによる調整は装飾のためだけに HTML を変更することになるだけでなく、単語間に不要なスペースが入ることで読み上げにも影響が出るなど、アクセシビリティ的にも良くない対応でした。
+
+  .sample-object
+    table.table-simple
+      tbody
+        tr
+          th 期　間
+          td 11月30日（火）まで
+        tr
+          th 電　話
+          td 075-351-0700（レストラン総合受付10時～19時）
+        tr
+          th 休業日
+          td 土・日・祝
+
+  pre
+    code.html.
+      &lt;table&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;期　間&lt;/th&gt; &lt;!-- 全角スペースで空白を調整しています --&gt;
+            &lt;td&gt;11月30日（火）まで&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;電　話&lt;/th&gt; &lt;!-- 全角スペースで空白を調整しています --&gt;
+            &lt;td&gt;075-351-0700（レストラン総合受付10時～19時）&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;休業日&lt;/th&gt;
+            &lt;td&gt;土・日・祝&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+
+  h2 今はこう書ける
+
+  p 一行だけのテキストの両端揃えなら
+    code text-align-last: justify;
+    | を指定することで実現できます。
+
+  .sample-object
+    table.table-simple.-justify
+      tbody
+        tr
+          th 期間
+          td 11月30日（火）まで
+        tr
+          th 電話
+          td 075-351-0700（レストラン総合受付10時～19時）
+        tr
+          th 休業日
+          td 土・日・祝
+
+  pre
+    code.html.
+      &lt;table&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;期間&lt;/th&gt;
+            &lt;td&gt;11月30日（火）まで&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;電話&lt;/th&gt;
+            &lt;td&gt;075-351-0700（レストラン総合受付10時～19時）&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;休業日&lt;/th&gt;
+            &lt;td&gt;土・日・祝&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+
+  pre
+    code.scss.
+      th {
+        text-align-last: justify;
+      }
+
+  p
+    code text-align-last
+    | は「ブロックの最後の行、あるいは強制的な改行の直前の行」をどのように配置するかを指定するプロパティですが、上記の例のテーブルのヘッダセルのような、テキストが一行であることが保証されている場面ではこのように活用することができます。

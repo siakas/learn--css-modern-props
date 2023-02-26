@@ -1,0 +1,82 @@
+@use "global" as g;
+
+.block-content {
+  h1 {
+    font-size: g.rem(32);
+
+    &::before {
+      margin-right: 0.4em;
+      color: #319795;
+      content: "#";
+    }
+  }
+
+  h2 {
+    margin: 2em 0 0;
+    font-size: g.rem(24);
+
+    &::before {
+      margin-right: 0.4em;
+      color: #319795;
+      content: "##";
+    }
+  }
+
+  h3 {
+    margin: 2em 0 0;
+    font-size: g.rem(20);
+
+    &::before {
+      margin-right: 0.4em;
+      color: #319795;
+      content: "###";
+    }
+  }
+
+  p {
+    margin: 1.6em 0;
+    line-height: 1.8;
+
+    > code {
+      padding: 2px 4px;
+      margin: 0 0.3em;
+      font-size: 92.5%;
+      background-color: #f7f7fc;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+  }
+
+  ul {
+    margin: 1.6em 0 0 1.6em;
+    list-style: disc;
+  }
+
+  ol {
+    margin: 1.6em 0 0 1.6em;
+    list-style: decimal;
+  }
+
+  :is(ul, ol) {
+    li {
+      list-style: inherit;
+
+      &:not(:first-child) {
+        margin-top: 0.2em;
+      }
+    }
+  }
+
+  pre {
+    max-width: 100%;
+    margin: 32px 0;
+    overflow: auto;
+    font-size: g.rem(14);
+    border-radius: 8px;
+
+    code.hljs {
+      padding: 1.6em;
+      font-family: inherit;
+    }
+  }
+}

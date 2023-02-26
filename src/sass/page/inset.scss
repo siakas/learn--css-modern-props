@@ -1,0 +1,60 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .image1 {
+    position: relative;
+    width: 300px;
+    margin: auto;
+
+    .thumb {
+      display: block;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 80px;
+      height: 80px;
+      margin: auto;
+
+      .icon {
+        display: block;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .image2 {
+    position: relative;
+    width: 300px;
+    margin: auto;
+
+    .thumb {
+      display: block;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    span {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 80px;
+      height: 80px;
+      margin: auto;
+
+      .icon {
+        display: block;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+  }
+}

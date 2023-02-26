@@ -1,0 +1,116 @@
+extends /layouts/default
+
+block style
+  +page-style('gap')
+
+block content
+  h1 Flexbox の余白調整
+
+  p CSS Grid だけでなく、Flexbox における子要素間の余白も
+    code gap
+    | を使うと、非常に楽に設定することができます。
+
+  p
+    code gap
+    | プロパティは IE で利用することができなかったため、同じく IE でまともに利用できない CSS Grid と合わせて紹介されることが多く、そのため CSS Grid 専用のプロパティと思われがちですが、実は Flexbox でも利用できるプロパティです。
+
+  h2 これまでは
+
+  p これまでは Flexbox の余白調整は子要素にマージンを持たせ、親要素のネガティブマージンなどと合わせて利用していました。
+
+  .sample-object
+    .old-flex
+      .obj
+      .obj
+      .obj
+
+  pre
+    code.html.
+      &lt;div class=&quot;flex&quot;&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .flex {
+        display: flex;
+        margin: auto -8px;
+
+        .obj {
+          width: calc((100% - (16px * 3)) / 3);
+          height: 100px;
+          margin: 0 8px;
+        }
+      }
+
+  h2 今はこう書ける
+
+  p
+    code gap
+    | を使うことで余白指定がシンプルになるだけでなく、ネガティブマージンの計算が不要になるため、スタイルを変更することなく列数を柔軟に変更することができます。
+
+  .sample-object
+    .new-flex
+      .obj
+      .obj
+      .obj
+    .new-flex
+      .obj
+      .obj
+      .obj
+      .obj
+
+  pre
+    code.html.
+      &lt;div class=&quot;flex&quot;&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;flex&quot;&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .flex {
+        display: flex;
+        gap: 16px;
+
+        .obj {
+          flex: 1;
+          height: 100px;
+        }
+      }
+
+  h3 gap プロパティはショートハンド
+
+  p
+    code gap
+    | プロパティは
+    code row-gap
+    | と
+    code column-gap
+    | のショートハンド（一括指定）プロパティなので、値を 1 つ指定した場合は行間と列間（上下左右）、値を 2 つ指定した場合は行間（上下）と列間（左右）に対する余白をそれぞれ指定することができます。
+
+  .sample-object
+    .new-flex-wrap
+      .obj
+      .obj
+      .obj
+      .obj
+      .obj
+      .obj
+
+  pre
+    code.scss.
+      .flex {
+        display: flex;
+        gap: 32px 16px; // 1つめの値が行間（上下）、2つめの値が列間（左右）に対する余白指定となります
+      }

@@ -1,0 +1,24 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .old-box {
+    width: 70%;
+    min-width: 200px;
+    max-width: 500px;
+    height: 240px;
+    margin: auto;
+    background-color: #c00;
+  }
+
+  .new-box {
+    width: clamp(200px, 70%, 500px);
+    height: 240px;
+    margin: auto;
+    background-color: #09c;
+  }
+
+  .text {
+    font-size: clamp(1rem, 1vw, 1.5rem);
+    line-height: 1.625;
+  }
+}

@@ -1,0 +1,77 @@
+extends /layouts/default
+
+block style
+  +page-style('clamp')
+
+block content
+  h1 最小値・推奨値・最大値の設定
+
+  p たとえばあるボックスの幅を、親要素に対して
+    code 70%
+    | と設定し、そのうえで最小幅を
+    code 200px
+    | 、最大幅を
+    code 500px
+    | と設定しておきたい場合、以下のようなスタイルを指定することになります。
+
+  .sample-object
+    .old-box
+
+  pre
+    code.scss.
+      .box {
+        width: 70%;
+        min-width: 200px;
+        max-width: 500px;
+        margin: auto;
+      }
+
+  p このように、なんらかのプロパティに対して（上記の例では幅）「最小値」「推奨値」「最大値」を設定したい場合、
+    code clamp()
+    | 関数を利用することで、それらの値をまとめて設定することができます。
+
+  h2 今はこう書ける
+
+  p
+    code clamp()
+    | 関数は引数として、左から「最小値」「推奨値」「最大値」の 3 つの値をとります。
+
+  .sample-object
+    .new-box
+
+  pre
+    code.scss.
+      .box {
+        width: clamp(200px, 70%, 500px);
+        margin: auto;
+      }
+
+  h2 clamp() の利用
+
+  p
+    code clamp()
+    | 関数と
+    code vw
+    | などの可変の単位を併用することで、最小値と最大値を制限したうえでその間で推奨値を変化させることができます。たとえばビューポートの幅に応じて
+    code font-size
+    | を
+    code 16px
+    | と
+    code 24px
+    | の間で可変させるには、次のように指定することができます。
+
+  .sample-object
+    p.text
+      | 先日の台風19号の被害により、千葉県南部では停電が続いています。復旧作業は緊急に行われておりますが、まだまだ多くの方々が困難な状況に置かれています。関係各所では、被災地への支援物資や食料品の提供が行われております。
+
+  pre
+    code.scss.
+      .text {
+        font-size: clamp(1rem, 1vw, 1.5rem);
+      }
+
+  p このような
+    code clamp()
+    | 関数とビューポートを組み合わせた指定は、下記のようなジェネレータサイトが便利です。活用してみてください。
+    br
+    a(href="https://min-max-calculator.9elements.com/", target="_blank", rel="noopener noreferrer") Min-Max-Value Interpolation
