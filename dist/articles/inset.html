@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/lib/highlightjs/styles/a11y-dark.min.css" />
+    <link rel="stylesheet" href="/assets/styles/page/inset.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main class="main">
+          <div class="block-content">
+            <h1>top / right / bottom / left をまとめて指定</h1>
+            <p>
+              要素の天地中央配置は
+              <code>display: grid</code>
+              と
+              <code>place-items: center</code>
+              の組み合わせで簡単に実現できますが、場合によっては親要素に対して絶対配置で天地中央に配置しなければならない場合もあります。
+            </p>
+            <p>
+              その際は
+              <code>margin: auto</code>
+              としたうえで、
+              <code>position</code>
+              の
+              <code>top</code>
+              <code>right</code>
+              <code>bottom</code>
+              <code>left</code>
+              それぞれに対して
+              <code>0</code>
+              を指定することで天地中央に配置するのですが、今はこれをもう少しシンプルに書くことができます。
+            </p>
+            <div class="sample-object">
+              <div class="image1">
+                <img class="thumb" src="https://picsum.photos/id/141/600/400" alt="" />
+                <span><img class="icon" src="/assets/img/play.svg" alt="" /></span>
+              </div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;image1&quot;&gt;
+  &lt;img class=&quot;thumb&quot; src=&quot;https://picsum.photos/id/141/600/400&quot; alt=&quot;&quot; /&gt;
+  &lt;span&gt;&lt;img class=&quot;icon&quot; src=&quot;/assets/img/play.svg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+            <pre><code class="scss">.image {
+  position: relative;
+  width: 300px;
+  margin: auto;
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+  }
+}
+</code></pre>
+            <h2>今はこう書ける</h2>
+            <p>
+              <code>top</code>
+              <code>right</code>
+              <code>bottom</code>
+              <code>left</code>
+              に対するショートハンド（一括指定）プロパティとして、
+              <code>inset</code>
+              というプロパティを利用できます。
+              <br />
+              <code>inset: 0</code>
+              とすることで、
+              <code>top</code>
+              <code>right</code>
+              <code>bottom</code>
+              <code>left</code>
+              への値をすべて
+              <code>0</code>
+              にすることができます。
+            </p>
+            <div class="sample-object">
+              <div class="image2">
+                <img class="thumb" src="https://picsum.photos/id/228/600/400" alt="" />
+                <span><img class="icon" src="/assets/img/play.svg" alt="" /></span>
+              </div>
+            </div>
+            <pre><code class="scss">span {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}</code></pre>
+          </div>
+        </main>
+        <aside class="side">
+          <nav>
+            <ul>
+              <li><a href="/articles/gap.html">Flex や Grid の余白調整</a></li>
+              <li><a href="/articles/grid.html">複数行で並べるブロック</a></li>
+              <li><a href="/articles/place-items.html">天地中央</a></li>
+              <li><a href="/articles/inset.html">top / right / bottom / left をまとめて指定</a></li>
+              <li><a href="/articles/aspectratio-objectfit.html">画像サイズを比率で調整（aspect-ratio と object-fit）</a></li>
+              <li><a href="/articles/clamp.html">最小値と最大値の設定（あと推奨値）</a></li>
+              <li><a href="/articles/margin.html">中央揃えのための `margin: 0 auto`</a></li>
+              <li><a href="/articles/display-none.html">表示／非表示の切り替えのための `display: none`</a></li>
+              <li><a href="/articles/text-align-last.html">一行テキストの両端揃え</a></li>
+              <li><a href="/articles/smooth-scroll.html">スムーススクロール</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <script src="/assets/lib/highlightjs/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll()
+    </script>
+  </body>
+</html>

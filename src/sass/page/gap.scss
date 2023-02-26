@@ -1,0 +1,43 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .old-flex {
+    display: flex;
+    margin: auto -8px;
+
+    .obj {
+      width: calc((100% - (16px * 3)) / 3);
+      height: 100px;
+      margin: 0 8px;
+      background-color: #c00;
+    }
+  }
+
+  .new-flex {
+    display: flex;
+    gap: 16px;
+
+    & + .new-flex {
+      margin-top: 16px;
+    }
+
+    .obj {
+      flex: 1;
+      height: 100px;
+      background-color: #09c;
+    }
+  }
+
+  .new-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+
+    .obj {
+      flex-grow: 1;
+      width: 30%;
+      height: 100px;
+      background-color: #09c;
+    }
+  }
+}

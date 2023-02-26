@@ -35,18 +35,17 @@ body {
   background: #fff;
 }
 
-// a {
-//   color: g.palette("link");
-//   text-decoration: underline;
-//   background-color: transparent;
+a {
+  color: #319795;
+  text-decoration: underline;
+  background-color: transparent;
 
-//   &:hover,
-//   &:active,
-//   &:focus {
-//     color: g.palette("link", "hover");
-//     text-decoration: none;
-//   }
-// }
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
 
 img,
 svg {

@@ -1,0 +1,142 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .container1 {
+    position: relative;
+    height: 300px;
+
+    .box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: #c00;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .circle {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    background-color: #2e2e48;
+    border-radius: 50%;
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 14px;
+      transform: translate(-50%, -50%);
+
+      span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin: 6px 0 0;
+        background-color: #fff;
+        border-radius: 3px;
+
+        &::before,
+        &::after {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 2px;
+          content: "";
+          background-color: #fff;
+          border-radius: 3px;
+        }
+
+        &::before {
+          transform: translateY(-6px);
+        }
+
+        &::after {
+          transform: translateY(6px);
+        }
+      }
+    }
+  }
+
+  .circle2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    background-color: #2e2e48;
+    border-radius: 50%;
+
+    span {
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 3px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 2px;
+        content: "";
+        background-color: #fff;
+        border-radius: 3px;
+      }
+
+      &::before {
+        transform: translateY(-6px);
+      }
+
+      &::after {
+        transform: translateY(6px);
+      }
+    }
+  }
+
+  .circle3 {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    background-color: #2e2e48;
+    border-radius: 50%;
+
+    span {
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 3px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 2px;
+        content: "";
+        background-color: #fff;
+        border-radius: 3px;
+      }
+
+      &::before {
+        transform: translateY(-6px);
+      }
+
+      &::after {
+        transform: translateY(6px);
+      }
+    }
+  }
+}

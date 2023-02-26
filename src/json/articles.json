@@ -1,12 +1,16 @@
 {
   "articles": [
     {
-      "title": "Flex や Gtid の余白調整",
+      "title": "Flexbox の余白調整",
       "slug": "gap"
     },
     {
       "title": "複数行で並べるブロック",
       "slug": "grid"
+    },
+    {
+      "title": "天地中央",
+      "slug": "place-items"
     },
     {
       "title": "top / right / bottom / left をまとめて指定",
@@ -17,7 +21,7 @@
       "slug": "aspectratio-objectfit"
     },
     {
-      "title": "最小値と最大値の設定（あと推奨値）",
+      "title": "最小値・推奨値・最大値の設定",
       "slug": "clamp"
     },
     {
@@ -27,10 +31,6 @@
     {
       "title": "表示／非表示の切り替えのための `display: none`",
       "slug": "display-none"
-    },
-    {
-      "title": "天地中央",
-      "slug": "place-items"
     },
     {
       "title": "一行テキストの両端揃え",
