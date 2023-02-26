@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+/**
+ * 参考：matthewlein.com/ceaser/
+ */ /**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+/**
+ * 単位を除去して数値のみを取り出す
+ * 参照: https://css-tricks.com/snippets/sass/strip-unit-function/
+--------------------------------------------- */
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+:is(.sample-object) .old-obj {
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  background-color: #c00;
+  transform: rotate(45deg) scale(0.7) translate(200px, -200px);
+}
+:is(.sample-object) .new-obj {
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  background-color: #c00;
+  rotate: 45deg;
+  scale: 0.7;
+  translate: 200px;
+}
+/*# sourceMappingURL=transform.css.map */

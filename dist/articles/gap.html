@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/assets/styles/base.css" />
+    <link rel="stylesheet" href="/assets/lib/highlightjs/styles/a11y-dark.min.css" />
+    <link rel="stylesheet" href="/assets/styles/page/gap.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main class="main">
+          <div class="block-content">
+            <h1>Flexbox の余白調整</h1>
+            <p>
+              CSS Grid だけでなく、Flexbox における子要素間の余白も
+              <code>gap</code>
+              を使うと、非常に楽に設定することができます。
+            </p>
+            <p>
+              <code>gap</code>
+              プロパティは IE で利用することができなかったため、同じく IE でまともに利用できない CSS Grid と合わせて紹介されることが多く、そのため CSS Grid 専用のプロパティと思われがちですが、実は Flexbox でも利用できるプロパティです。
+            </p>
+            <h2>これまでは</h2>
+            <p>これまでは Flexbox の余白調整は子要素にマージンを持たせ、親要素のネガティブマージンなどと合わせて利用していました。</p>
+            <div class="sample-object">
+              <div class="old-flex">
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+              </div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <pre><code class="scss">.flex {
+  display: flex;
+  margin: auto -8px;
+
+  .obj {
+    width: calc((100% - (16px * 3)) / 3);
+    height: 100px;
+    margin: 0 8px;
+  }
+}
+</code></pre>
+            <h2>今はこう書ける</h2>
+            <p>
+              <code>gap</code>
+              を使うことで余白指定がシンプルになるだけでなく、ネガティブマージンの計算が不要になるため、スタイルを変更することなく列数を柔軟に変更することができます。
+            </p>
+            <div class="sample-object">
+              <div class="new-flex">
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+              </div>
+              <div class="new-flex">
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+              </div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;obj&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <pre><code class="scss">.flex {
+  display: flex;
+  gap: 16px;
+
+  .obj {
+    flex: 1;
+    height: 100px;
+  }
+}
+</code></pre>
+            <h3>gap プロパティはショートハンド</h3>
+            <p>
+              <code>gap</code>
+              プロパティは
+              <code>row-gap</code>
+              と
+              <code>column-gap</code>
+              のショートハンド（一括指定）プロパティなので、値を 1 つ指定した場合は行間と列間（上下左右）、値を 2 つ指定した場合は行間（上下）と列間（左右）に対する余白をそれぞれ指定することができます。
+            </p>
+            <div class="sample-object">
+              <div class="new-flex-wrap">
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+              </div>
+            </div>
+            <pre><code class="scss">.flex {
+  display: flex;
+  gap: 32px 16px; // 1つめの値が行間（上下）、2つめの値が列間（左右）に対する余白指定となります
+}</code></pre>
+          </div>
+        </main>
+        <aside class="side">
+          <nav>
+            <ul>
+              <li><a href="/articles/gap.html">Flexbox の余白調整</a></li>
+              <li><a href="/articles/place-items.html">天地中央</a></li>
+              <li><a href="/articles/inset.html">top / right / bottom / left をまとめて指定</a></li>
+              <li><a href="/articles/aspectratio-objectfit.html">画像サイズを比率で調整（aspect-ratio と object-fit）</a></li>
+              <li><a href="/articles/clamp.html">最小値・推奨値・最大値の設定</a></li>
+              <li><a href="/articles/margin.html">中央揃えのための `margin: 0 auto`</a></li>
+              <li><a href="/articles/display-none.html">表示／非表示の切り替えのための `display: none`</a></li>
+              <li><a href="/articles/text-align-last.html">一行テキストの両端揃え</a></li>
+              <li><a href="/articles/smooth-scroll.html">スムーススクロール</a></li>
+              <li><a href="/articles/transform.html">独立した translate / scale / rotate</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+    <script src="/assets/lib/highlightjs/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll()
+    </script>
+  </body>
+</html>

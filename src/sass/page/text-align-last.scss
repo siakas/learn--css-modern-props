@@ -1,0 +1,28 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .table-simple {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+
+    th,
+    td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      width: 1%;
+      padding: 8px 24px;
+      white-space: nowrap;
+      background: #eee;
+    }
+
+    &.-justify {
+      th {
+        text-align-last: justify;
+      }
+    }
+  }
+}

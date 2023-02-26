@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+/**
+ * 参考：matthewlein.com/ceaser/
+ */ /**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+/**
+ * 単位を除去して数値のみを取り出す
+ * 参照: https://css-tricks.com/snippets/sass/strip-unit-function/
+--------------------------------------------- */
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+:is(.sample-object) .container1 {
+  position: relative;
+  height: 300px;
+}
+:is(.sample-object) .container1 .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: #c00;
+  transform: translate(-50%, -50%);
+}
+:is(.sample-object) .circle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  background-color: #2e2e48;
+  border-radius: 50%;
+}
+:is(.sample-object) .circle .wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+}
+:is(.sample-object) .circle .wrapper span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 6px 0 0;
+  background-color: #fff;
+  border-radius: 3px;
+}
+:is(.sample-object) .circle .wrapper span::before, :is(.sample-object) .circle .wrapper span::after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background-color: #fff;
+  border-radius: 3px;
+}
+:is(.sample-object) .circle .wrapper span::before {
+  transform: translateY(-6px);
+}
+:is(.sample-object) .circle .wrapper span::after {
+  transform: translateY(6px);
+}
+:is(.sample-object) .circle2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  background-color: #2e2e48;
+  border-radius: 50%;
+}
+:is(.sample-object) .circle2 span {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+:is(.sample-object) .circle2 span::before, :is(.sample-object) .circle2 span::after {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 2px;
+  content: "";
+  background-color: #fff;
+  border-radius: 3px;
+}
+:is(.sample-object) .circle2 span::before {
+  transform: translateY(-6px);
+}
+:is(.sample-object) .circle2 span::after {
+  transform: translateY(6px);
+}
+:is(.sample-object) .circle3 {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  background-color: #2e2e48;
+  border-radius: 50%;
+}
+:is(.sample-object) .circle3 span {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+:is(.sample-object) .circle3 span::before, :is(.sample-object) .circle3 span::after {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 2px;
+  content: "";
+  background-color: #fff;
+  border-radius: 3px;
+}
+:is(.sample-object) .circle3 span::before {
+  transform: translateY(-6px);
+}
+:is(.sample-object) .circle3 span::after {
+  transform: translateY(6px);
+}
+/*# sourceMappingURL=place-items.css.map */

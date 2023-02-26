@@ -1,0 +1,43 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .toggle {
+    .obj1 {
+      display: none;
+      width: 200px;
+      height: 200px;
+      margin: 24px auto 0;
+      background: #c00;
+
+      &.is-active {
+        display: block;
+      }
+    }
+
+    .obj2 {
+      width: 200px;
+      height: 200px;
+      margin: 24px auto 0;
+      background: #09c;
+
+      &:not(.is-active) {
+        display: none;
+      }
+    }
+
+    .flex {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    button {
+      min-width: 100px;
+      padding: 8px 16px;
+      cursor: pointer;
+      background: #eee;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  }
+}

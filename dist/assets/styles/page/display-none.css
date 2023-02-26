@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+/**
+ * 参考：matthewlein.com/ceaser/
+ */ /**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+/**
+ * 単位を除去して数値のみを取り出す
+ * 参照: https://css-tricks.com/snippets/sass/strip-unit-function/
+--------------------------------------------- */
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+:is(.sample-object) .toggle .obj1 {
+  display: none;
+  width: 200px;
+  height: 200px;
+  margin: 24px auto 0;
+  background: #c00;
+}
+:is(.sample-object) .toggle .obj1.is-active {
+  display: block;
+}
+:is(.sample-object) .toggle .obj2 {
+  width: 200px;
+  height: 200px;
+  margin: 24px auto 0;
+  background: #09c;
+}
+:is(.sample-object) .toggle .obj2:not(.is-active) {
+  display: none;
+}
+:is(.sample-object) .toggle .flex {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+:is(.sample-object) .toggle button {
+  min-width: 100px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+/*# sourceMappingURL=display-none.css.map */

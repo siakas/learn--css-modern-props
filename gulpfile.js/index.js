@@ -21,3 +21,8 @@ exports.default = gulp.series(
   gulp.parallel(html, styles),
   gulp.parallel(serve, watch)
 )
+
+/**
+ * ビルドタスク
+--------------------------------------------- */
+exports.build = gulp.series(gulp.parallel(html, styles))

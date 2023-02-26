@@ -314,10 +314,6 @@ template {
 /**
  * 参考：matthewlein.com/ceaser/
  */ /**
- * Font Awesome のアイコンを出力
- * icon-fa の引数にはエスケープなしの文字コードを直接記述する（初期値は f105 で右向き矢印）
---------------------------------------------- */
-/**
  * マップ管理のパレットから色を出力（初期値は default）
  * color: palette('red', 'light'); のように指定
 --------------------------------------------- */
@@ -333,7 +329,7 @@ html {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Hiragino Sans", sans-serif;
+  font-family: "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
   font-weight: 400;
   line-height: 1.55;
   word-break: break-word;
@@ -346,11 +342,6 @@ html {
   -webkit-text-size-adjust: 100%;
      -moz-text-size-adjust: 100%;
           text-size-adjust: 100%;
-}
-@media screen and (max-width: 767px) {
-  html {
-    overflow-x: hidden;
-  }
 }
 
 *,
@@ -368,6 +359,15 @@ body {
   background: #fff;
 }
 
+a {
+  color: #319795;
+  text-decoration: underline;
+  background-color: transparent;
+}
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
 img,
 svg {
   max-width: 100%;
@@ -378,7 +378,8 @@ figure {
   margin: 0;
 }
 
-pre {
+pre,
+code {
   font-family: Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Consolas, Courier, monospace;
 }
 
@@ -452,24 +453,106 @@ button {
   outline: none !important;
 }
 
-@media screen and (max-width: 767px) {
-  input[type=text],
-input[type=tel],
-input[type=email],
-input[type=number],
-input[type=password],
-input[type=search],
-textarea,
-select {
-    font-size: 16px !important;
-  }
+.container {
+  display: flex;
+  gap: 80px;
+  justify-content: space-between;
 }
 
-.block-content {
-  margin: 4rem 0 0;
+.main {
+  flex-grow: 1;
+  order: 2;
+  max-width: 850px;
+  padding: 24px 0 0;
+  line-height: 1.7;
 }
-.block-content p:not([class]) {
-  line-height: 1.625;
+
+.side {
+  flex-shrink: 0;
+  order: 1;
+  width: 240px;
+}
+.side ul {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.side li + li {
+  margin-top: 2em;
+}
+.side a {
+  font-weight: bold;
+  color: #555;
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 40px 15px;
+  margin: auto;
+}
+
+.block-content h1 {
+  font-size: 2rem;
+}
+.block-content h1::before {
+  margin-right: 0.4em;
+  color: #319795;
+  content: "#";
+}
+.block-content h2 {
+  margin: 2em 0 0;
+  font-size: 1.5rem;
+}
+.block-content h2::before {
+  margin-right: 0.4em;
+  color: #319795;
+  content: "##";
+}
+.block-content h3 {
+  margin: 2em 0 0;
+  font-size: 1.25rem;
+}
+.block-content h3::before {
+  margin-right: 0.4em;
+  color: #319795;
+  content: "###";
+}
+.block-content p {
+  margin: 1.6em 0;
+  line-height: 1.8;
+}
+.block-content p > code {
+  padding: 2px 4px;
+  margin: 0 0.3em;
+  font-size: 92.5%;
+  background-color: #f7f7fc;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.block-content ul {
+  margin: 1.6em 0 0 1.6em;
+  list-style: disc;
+}
+.block-content ol {
+  margin: 1.6em 0 0 1.6em;
+  list-style: decimal;
+}
+.block-content :is(ul, ol) li {
+  list-style: inherit;
+}
+.block-content :is(ul, ol) li:not(:first-child) {
+  margin-top: 0.2em;
+}
+.block-content pre {
+  max-width: 100%;
+  margin: 32px 0;
+  overflow: auto;
+  font-size: 0.875rem;
+  border-radius: 8px;
+}
+.block-content pre code.hljs {
+  padding: 1.6em;
+  font-family: inherit;
 }
 
 .index-articles {
@@ -481,5 +564,31 @@ select {
 }
 .index-articles > li + li {
   margin-top: 0.5rem;
+}
+
+.sample-object {
+  padding: 16px;
+  margin: 32px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.block-content .sample-object * {
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+  }
+  input[type=text],
+input[type=tel],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+textarea,
+select {
+    font-size: 16px !important;
+  }
 }
 /*# sourceMappingURL=base.css.map */

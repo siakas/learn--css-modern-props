@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+/**
+ * 参考：matthewlein.com/ceaser/
+ */ /**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+/**
+ * 単位を除去して数値のみを取り出す
+ * 参照: https://css-tricks.com/snippets/sass/strip-unit-function/
+--------------------------------------------- */
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+:is(.sample-object) .card-sample1 {
+  display: flex;
+  gap: 16px;
+}
+:is(.sample-object) .card-sample1 .item {
+  flex: 1;
+}
+:is(.sample-object) .card-sample1 .image {
+  overflow: hidden;
+}
+:is(.sample-object) .card-sample1 .image span {
+  display: block;
+  padding-top: 56.25%;
+  background-position: center;
+  background-size: cover;
+}
+:is(.sample-object) .card-sample1 .text {
+  margin: 0.6em 0 0;
+}
+:is(.sample-object) .card-sample1 .text p {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+:is(.sample-object) .card-sample2 {
+  display: flex;
+  gap: 16px;
+}
+:is(.sample-object) .card-sample2 .item {
+  flex: 1;
+}
+:is(.sample-object) .card-sample2 .image img {
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+:is(.sample-object) .card-sample2 .text {
+  margin: 0.6em 0 0;
+}
+:is(.sample-object) .card-sample2 .text p {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+:is(.sample-object) .card-sample3 {
+  display: flex;
+  gap: 8px;
+}
+:is(.sample-object) .card-sample3 .item {
+  flex: 1;
+}
+:is(.sample-object) .card-sample3 .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+:is(.sample-object) .card-sample3 .image img.aspect1 {
+  aspect-ratio: 16/9;
+}
+:is(.sample-object) .card-sample3 .image img.aspect2 {
+  aspect-ratio: 4/3;
+}
+:is(.sample-object) .card-sample3 .image img.aspect3 {
+  aspect-ratio: 3/2;
+}
+:is(.sample-object) .card-sample3 .image img.aspect4 {
+  aspect-ratio: 1.618/1;
+}
+:is(.sample-object) .card-sample3 .image img.aspect5 {
+  aspect-ratio: 1.414/1;
+}
+:is(.sample-object) .card-sample3 .text {
+  margin: 0.6em 0 0;
+}
+:is(.sample-object) .card-sample3 .text p {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+:is(.sample-object) .card-sample3 .text p span {
+  font-size: 0.6875rem;
+}
+/*# sourceMappingURL=aspectratio-objectfit.css.map */

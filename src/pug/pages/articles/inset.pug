@@ -1,0 +1,97 @@
+extends /layouts/default
+
+block style
+  +page-style('inset')
+
+block content
+  h1 top / right / bottom / left をまとめて指定
+
+  p 要素の天地中央配置は
+    code display: grid
+    | と
+    code place-items: center
+    | の組み合わせで簡単に実現できますが、場合によっては親要素に対して絶対配置で天地中央に配置しなければならない場合もあります。
+
+  p その際は
+    code margin: auto
+    | としたうえで、
+    code position
+    | の
+    code top
+    code right
+    code bottom
+    code left
+    | それぞれに対して
+    code 0
+    | を指定することで天地中央に配置するのですが、今はこれをもう少しシンプルに書くことができます。
+
+  .sample-object
+    .image1
+      img.thumb(src="https://picsum.photos/id/141/600/400", alt="")
+      span
+        img.icon(src="/assets/img/play.svg", alt="")
+
+  pre
+    code.html.
+      &lt;div class=&quot;image1&quot;&gt;
+        &lt;img class=&quot;thumb&quot; src=&quot;https://picsum.photos/id/141/600/400&quot; alt=&quot;&quot; /&gt;
+        &lt;span&gt;&lt;img class=&quot;icon&quot; src=&quot;/assets/img/play.svg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
+      &lt;/div&gt;
+
+  pre
+    code.scss.
+      .image {
+        position: relative;
+        width: 300px;
+        margin: auto;
+
+        span {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: block;
+          width: 80px;
+          height: 80px;
+          margin: auto;
+        }
+      }
+
+  h2 今はこう書ける
+
+  p
+    code top
+    code right
+    code bottom
+    code left
+    | に対するショートハンド（一括指定）プロパティとして、
+    code inset
+    | というプロパティを利用できます。
+    br
+    code inset: 0
+    | とすることで、
+    code top
+    code right
+    code bottom
+    code left
+    | への値をすべて
+    code 0
+    | にすることができます。
+
+  .sample-object
+    .image2
+      img.thumb(src="https://picsum.photos/id/228/600/400", alt="")
+      span
+        img.icon(src="/assets/img/play.svg", alt="")
+
+  pre
+    code.scss.
+      span {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 80px;
+        height: 80px;
+        margin: auto;
+      }

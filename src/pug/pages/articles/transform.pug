@@ -1,0 +1,67 @@
+extends /layouts/default
+
+block style
+  +page-style('transform')
+
+block content
+  h1 独立した translate / scale / rotate
+
+  p これまで
+    code translate()
+    | や
+    code scale()
+    | 、
+    code rotate()
+    | といった処理は、
+    code transform
+    | プロパティの中で利用する関数として使用していました。そのため、複数の処理を実行する場合は
+    code transform
+    | プロパティの中でまとめて指定する必要があり、
+    code animation
+    | や
+    code transition
+    | で個別の処理を扱うにはやや不便なケースがありました。
+
+  .sample-object
+    .old-obj
+
+  pre
+    code.scss.
+      .obj {
+        width: 150px;
+        height: 150px;
+        margin: 50px auto;
+        transform: rotate(45deg) scale(0.7) translate(200px, -200px);
+      }
+
+  h2 今はこう書ける
+
+  p 今は
+    code translate
+    | も
+    code scale
+    | も
+    code rotate
+    | も独立した CSS プロパティとして記述することができ、それぞれに対して個別に
+    code animation
+    | や
+    code transition
+    | を設定することができるようになりました。
+
+  p
+    code skew
+    | は独立したプロパティにはなっていないので注意してください。
+
+  .sample-object
+    .new-obj
+
+  pre
+    code.scss.
+      .new-obj {
+        width: 150px;
+        height: 150px;
+        margin: 50px auto;
+        rotate: 45deg;
+        scale: 0.7;
+        translate: 200px;
+      }

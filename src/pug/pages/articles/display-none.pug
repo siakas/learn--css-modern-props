@@ -1,0 +1,68 @@
+extends /layouts/default
+
+block style
+  +page-style('display-none')
+
+block content
+  h1 表示／非表示の切り替えのための `display: none`
+
+  p ある要素の表示と非表示の切り替えを CSS でおこなう際、
+    code display: block
+    | と
+    code display: none
+    | とで切り替えの指定をすることがあります。
+
+  .sample-object
+    .toggle
+      .flex
+        button#show1 表示
+        button#hide1 非表示
+      #target1.obj1
+
+  pre
+    code.scss.
+      .obj {
+        display: none;
+
+        &.is-active {
+          display: block;
+        }
+      }
+
+  p しかし
+    code display: block
+    | と
+    code display: none;
+    | による切り替えはスタイルの指定が冗長であるだけでなく、
+    code display: block
+    | に切り替えた要素に、元々は
+    code display: flex
+    | が適用されていた場合などでは
+    code display
+    | プロパティの値が変わってしまうことで、思わぬ表示崩れの原因になることもあります。
+
+  h2 今はこう書ける
+
+  p 今は
+    code :not()
+    | を使うことでよりシンプルに、
+    code display: none
+    | の指定のみで切り替えのスタイルを制御できます。
+
+  .sample-object
+    .toggle
+      .flex
+        button#show2 表示
+        button#hide2 非表示
+      #target2.obj2
+
+  pre
+    code.scss.
+      .obj {
+        &:not(.is-active) {
+          display: none;
+        }
+      }
+
+block scripts
+  script(src="/assets/scripts/display-none.js") 
