@@ -57,7 +57,7 @@
     list-style: decimal;
   }
 
-  :is(ul, ol) {
+  :is(ul:not([class]), ol:not([class])) {
     li {
       list-style: inherit;
 
