@@ -1,0 +1,21 @@
+@use "global" as g;
+
+:is(.sample-object) {
+  .old-obj {
+    width: 150px;
+    height: 150px;
+    margin: 50px auto;
+    background-color: #c00;
+    transform: rotate(45deg) scale(0.7) translate(200px, -200px);
+  }
+
+  .new-obj {
+    width: 150px;
+    height: 150px;
+    margin: 50px auto;
+    background-color: #c00;
+    rotate: 45deg;
+    scale: 0.7;
+    translate: 200px;
+  }
+}

@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+/**
+ * 参考：matthewlein.com/ceaser/
+ */ /**
+ * マップ管理のパレットから色を出力（初期値は default）
+ * color: palette('red', 'light'); のように指定
+--------------------------------------------- */
+/**
+ * 単位を除去して数値のみを取り出す
+ * 参照: https://css-tricks.com/snippets/sass/strip-unit-function/
+--------------------------------------------- */
+/**
+ * 指定したピクセル指定のフォントサイズを rem 単位に変換する
+ * 引数への単位の有無は関数側でトリムしているので、rem(16) でも rem(16px) でもどちらでも可
+--------------------------------------------- */
+:is(.sample-object) .wrapper {
+  position: relative;
+  height: 300px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+:is(.sample-object) .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding-bottom: 16px;
+  background: rgba(255, 255, 255, 0.8);
+}
+:is(.sample-object) .header a {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #319795;
+  border-radius: 50%;
+}
+:is(.sample-object) .section {
+  box-sizing: border-box;
+  height: 400px;
+  padding: 16px;
+}
+:is(.sample-object) .section h1::before {
+  display: none;
+}
+:is(.sample-object) .section#a {
+  background-color: rgba(204, 0, 0, 0.6);
+}
+:is(.sample-object) .section#b {
+  background-color: rgba(0, 153, 204, 0.6);
+}
+:is(.sample-object) .section#c {
+  background-color: rgba(0, 204, 102, 0.6);
+}
+:is(.sample-object) .new-wrapper {
+  position: relative;
+  height: 300px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+:is(.sample-object) .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding-bottom: 16px;
+  background: rgba(255, 255, 255, 0.8);
+}
+:is(.sample-object) .header a {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #319795;
+  border-radius: 50%;
+}
+:is(.sample-object) .section {
+  box-sizing: border-box;
+  height: 400px;
+  padding: 16px;
+}
+:is(.sample-object) .section h1::before {
+  display: none;
+}
+:is(.sample-object) .section#aa {
+  background-color: rgba(204, 0, 0, 0.6);
+}
+:is(.sample-object) .section#bb {
+  background-color: rgba(0, 153, 204, 0.6);
+}
+:is(.sample-object) .section#cc {
+  background-color: rgba(0, 204, 102, 0.6);
+}
+/*# sourceMappingURL=smooth-scroll.css.map */

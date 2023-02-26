@@ -5,10 +5,6 @@
       "slug": "gap"
     },
     {
-      "title": "複数行で並べるブロック",
-      "slug": "grid"
-    },
-    {
       "title": "天地中央",
       "slug": "place-items"
     },
@@ -39,6 +35,10 @@
     {
       "title": "スムーススクロール",
       "slug": "smooth-scroll"
+    },
+    {
+      "title": "独立した translate / scale / rotate",
+      "slug": "transform"
     }
   ]
 }
