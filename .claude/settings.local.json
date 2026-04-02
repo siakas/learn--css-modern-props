@@ -10,7 +10,15 @@
       "Skill(vercel-react-best-practices:*)",
       "Bash(wc:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(curl -s http://localhost:4323/)",
+      "Bash(pnpm biome:*)"
     ],
     "deny": [],
     "ask": []
