@@ -3,46 +3,69 @@
 
 @layer base {
   :root {
-    /* shadcn/ui カラートークン */
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    /* shadcn/ui カラートークン（グリーン基調ライトモード） */
+    --background: oklch(0.985 0.006 145);
+    --foreground: oklch(0.12 0.025 145);
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card-foreground: oklch(0.12 0.025 145);
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.12 0.025 145);
+    --primary: oklch(0.48 0.18 145);
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.94 0.025 145);
+    --secondary-foreground: oklch(0.2 0.05 145);
+    --muted: oklch(0.94 0.015 145);
+    --muted-foreground: oklch(0.5 0.04 145);
+    --accent: oklch(0.9 0.04 145);
+    --accent-foreground: oklch(0.2 0.05 145);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --border: oklch(0.88 0.025 145);
+    --input: oklch(0.88 0.025 145);
+    --ring: oklch(0.48 0.18 145);
     --radius: 0.625rem;
 
     /* サイト固有のカラートークン */
-    --color-main: #c8133e;
-    --color-sub: #7ec1ea;
-    --color-teal: #319795;
-    --color-text: #333;
-    --color-link: #319795;
-    --color-gray: #f3f3f3;
-    --color-border: #ddd;
+    --color-main: oklch(0.48 0.18 145);
+    --color-accent: oklch(0.65 0.15 145);
+    --color-text: oklch(0.12 0.025 145);
+    --color-link: oklch(0.48 0.18 145);
+    --color-bg-subtle: oklch(0.94 0.025 145);
+    --color-border: oklch(0.88 0.025 145);
 
     /* フォントファミリー */
     --font-sans:
-      "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+      "Plus Jakarta Sans", "Hiragino Kaku Gothic Pro", "Hiragino Sans",
+      sans-serif;
     --font-mono:
-      Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Consolas,
-      Courier, monospace;
+      "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 
   .dark {
-    /* ダークモードが必要な場合はここに追記 */
+    --background: oklch(0.13 0.015 145);
+    --foreground: oklch(0.95 0.01 145);
+    --card: oklch(0.17 0.015 145);
+    --card-foreground: oklch(0.95 0.01 145);
+    --popover: oklch(0.17 0.015 145);
+    --popover-foreground: oklch(0.95 0.01 145);
+    --primary: oklch(0.65 0.18 145);
+    --primary-foreground: oklch(0.1 0.02 145);
+    --secondary: oklch(0.22 0.03 145);
+    --secondary-foreground: oklch(0.9 0.015 145);
+    --muted: oklch(0.22 0.02 145);
+    --muted-foreground: oklch(0.62 0.04 145);
+    --accent: oklch(0.25 0.04 145);
+    --accent-foreground: oklch(0.9 0.015 145);
+    --destructive: oklch(0.65 0.22 27.325);
+    --border: oklch(0.25 0.025 145);
+    --input: oklch(0.25 0.025 145);
+    --ring: oklch(0.65 0.18 145);
+
+    --color-main: oklch(0.65 0.18 145);
+    --color-accent: oklch(0.75 0.15 145);
+    --color-text: oklch(0.95 0.01 145);
+    --color-link: oklch(0.65 0.18 145);
+    --color-bg-subtle: oklch(0.2 0.02 145);
+    --color-border: oklch(0.25 0.025 145);
   }
 }
 
@@ -57,8 +80,8 @@
   }
 
   body {
-    color: #333;
-    background-color: white;
+    color: var(--color-text);
+    background-color: var(--background);
   }
 
   pre,
@@ -89,24 +112,24 @@
   /* 見出しの # プレフィックス */
   .prose h1::before {
     content: "# ";
-    color: #0d9488;
+    color: var(--color-main);
   }
 
   .prose h2::before {
     content: "## ";
-    color: #0d9488;
+    color: var(--color-main);
   }
 
   .prose h3::before {
     content: "### ";
-    color: #0d9488;
+    color: var(--color-main);
   }
 
   /* サンプルオブジェクト共通スタイル */
   .prose .sample-object {
     padding: 16px;
     margin: 32px 0;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
   }
 
