@@ -6,16 +6,21 @@ const currentPath = Astro.url.pathname
 ---
 
 <nav>
-  <p class="logo">
-    <a href="/">#</a>
+  <p class="m-0 text-5xl font-bold">
+    <a href="/" class="text-teal-600 no-underline hover:no-underline">#</a>
   </p>
-  <ul>
+  <ul class="mt-6 list-none p-0 text-[0.9375rem] leading-normal space-y-8">
     {
       articles.map((article) => (
         <li>
           <a
             href={`/articles/${article.slug}`}
-            class:list={[{ 'is-current': currentPath === `/articles/${article.slug}` }]}
+            class:list={[
+              'font-bold no-underline',
+              currentPath === `/articles/${article.slug}`
+                ? 'text-teal-600'
+                : 'text-neutral-600 hover:text-teal-600',
+            ]}
           >
             {article.title}
           </a>
@@ -24,42 +29,3 @@ const currentPath = Astro.url.pathname
     }
   </ul>
 </nav>
-
-<style>
-  .logo {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 0;
-
-    a {
-      color: #319795;
-      text-decoration: none;
-    }
-  }
-
-  ul {
-    margin: 24px 0 0;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    list-style: none;
-    padding: 0;
-  }
-
-  li + li {
-    margin-top: 2em;
-  }
-
-  a {
-    font-weight: bold;
-    color: #555;
-    text-decoration: none;
-
-    &:hover {
-      color: #319795;
-    }
-
-    &.is-current {
-      color: #319795;
-    }
-  }
-</style>
