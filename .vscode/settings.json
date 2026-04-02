@@ -3,11 +3,8 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
-    // ファイル保存時、ESLint による自動フォーマット
-    "source.fixAll.eslint": true,
-
-    // ファイル保存時、Stylelint による自動フォーマット
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
