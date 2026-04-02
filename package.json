@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.26.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -25,5 +26,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp"]
   }
 }
