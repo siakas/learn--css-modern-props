@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* shadcn/ui カラートークン */
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --radius: 0.625rem;
+
+    /* サイト固有のカラートークン */
+    --color-main: #c8133e;
+    --color-sub: #7ec1ea;
+    --color-teal: #319795;
+    --color-text: #333;
+    --color-link: #319795;
+    --color-gray: #f3f3f3;
+    --color-border: #ddd;
+
+    /* フォントファミリー */
+    --font-sans:
+      "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    --font-mono:
+      Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Consolas,
+      Courier, monospace;
+  }
+
+  .dark {
+    /* ダークモードが必要な場合はここに追記 */
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    tab-size: 4;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    color: #333;
+    background-color: white;
+  }
+
+  pre,
+  code {
+    font-family: var(--font-mono);
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+    vertical-align: bottom;
+  }
+
+  a {
+    color: var(--color-link);
+    text-decoration: underline;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="top / right / bottom / left をまとめて指定">
+  <h1>top / right / bottom / left をまとめて指定</h1>
+
+  <p>
+    要素の天地中央配置は <code>display: grid</code> と
+    <code>place-items: center</code>
+    の組み合わせで簡単に実現できますが、場合によっては親要素に対して絶対配置で天地中央に配置しなければならない場合もあります。
+  </p>
+
+  <p>
+    その際は <code>margin: auto</code> としたうえで、<code>position</code> の
+    <code>top</code> <code>right</code> <code>bottom</code> <code>left</code>
+    それぞれに対して <code>0</code> を指定することで天地中央に配置するのですが、今はこれをもう少しシンプルに書くことができます。
+  </p>
+
+  <div class="sample-object">
+    <div class="image1">
+      <img class="thumb" src="https://picsum.photos/id/141/600/400" alt="" />
+      <span><img class="icon" src="/assets/img/play.svg" alt="" /></span>
+    </div>
+  </div>
+
+  <pre><code class="language-html">&lt;div class="image1"&gt;
+  &lt;img class="thumb" src="https://picsum.photos/id/141/600/400" alt="" /&gt;
+  &lt;span&gt;&lt;img class="icon" src="/assets/img/play.svg" alt="" /&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.image &#123;
+  position: relative;
+  width: 300px;
+  margin: auto;
+
+  span &#123;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+  &#125;
+&#125;</code></pre>
+
+  <h2>今はこう書ける</h2>
+
+  <p>
+    <code>top</code> <code>right</code> <code>bottom</code> <code>left</code>
+    に対するショートハンド（一括指定）プロパティとして、<code>inset</code>
+    というプロパティを利用できます。<br />
+    <code>inset: 0</code> とすることで、<code>top</code> <code>right</code>
+    <code>bottom</code> <code>left</code> への値をすべて <code>0</code>
+    にすることができます。
+  </p>
+
+  <div class="sample-object">
+    <div class="image2">
+      <img class="thumb" src="https://picsum.photos/id/228/600/400" alt="" />
+      <span><img class="icon" src="/assets/img/play.svg" alt="" /></span>
+    </div>
+  </div>
+
+  <pre><code class="language-scss">span &#123;
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+&#125;</code></pre>
+</BaseLayout>
+
+<style>
+  .image1 {
+    position: relative;
+    width: 300px;
+    margin: auto;
+
+    .thumb {
+      display: block;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 80px;
+      height: 80px;
+      margin: auto;
+
+      .icon {
+        display: block;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .image2 {
+    position: relative;
+    width: 300px;
+    margin: auto;
+
+    .thumb {
+      display: block;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    span {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 80px;
+      height: 80px;
+      margin: auto;
+
+      .icon {
+        display: block;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+  }
+</style>

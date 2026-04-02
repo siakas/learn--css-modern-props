@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="独立した translate / scale / rotate">
+  <h1>独立した translate / scale / rotate</h1>
+
+  <p>
+    これまで <code>translate()</code> や <code>scale()</code>、<code>rotate()</code>
+    といった処理は、<code>transform</code> プロパティの中で利用する関数として使用していました。そのため、複数の処理を実行する場合は
+    <code>transform</code>
+    プロパティの中でまとめて指定する必要があり、<code>animation</code> や
+    <code>transition</code>
+    で個別の処理を扱うにはやや不便なケースがありました。
+  </p>
+
+  <div class="sample-object">
+    <div class="old-obj"></div>
+  </div>
+
+  <pre><code class="language-scss">.obj &#123;
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  transform: rotate(45deg) scale(0.7) translate(200px, -200px);
+&#125;</code></pre>
+
+  <h2>今はこう書ける</h2>
+
+  <p>
+    今は <code>translate</code> も <code>scale</code> も <code>rotate</code>
+    も独立した CSS プロパティとして記述することができ、それぞれに対して個別に
+    <code>animation</code> や <code>transition</code>
+    を設定することができるようになりました。
+  </p>
+
+  <p><code>skew</code> は独立したプロパティにはなっていないので注意してください。</p>
+
+  <div class="sample-object">
+    <div class="new-obj"></div>
+  </div>
+
+  <pre><code class="language-scss">.new-obj &#123;
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  rotate: 45deg;
+  scale: 0.7;
+  translate: 200px;
+&#125;</code></pre>
+</BaseLayout>
+
+<style>
+  .old-obj {
+    width: 150px;
+    height: 150px;
+    margin: 50px auto;
+    background-color: #c00;
+    transform: rotate(45deg) scale(0.7) translate(200px, -200px);
+  }
+
+  .new-obj {
+    width: 150px;
+    height: 150px;
+    margin: 50px auto;
+    background-color: #c00;
+    rotate: 45deg;
+    scale: 0.7;
+    translate: 200px;
+  }
+</style>

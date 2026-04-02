@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="スムーススクロール">
+  <h1>スムーススクロール</h1>
+
+  <p>
+    これまではページ内のアンカーリンクなどをなめらかにスクロールさせるには、JavaScript を使って指定するしかありませんでしたが、今は
+    <code>scroll-behavior</code> というプロパティを使うことで、CSS
+    のみでスムーススクロールを実現できるようになりました。
+  </p>
+
+  <h2>今はこう書ける</h2>
+
+  <p>
+    スクロールする要素に対して <code>scroll-behavior: smooth</code>
+    とすることで、なめらかなスムーススクロールを実現できます。<br />
+    最近のサイトでは <code>html</code>
+    要素にこのプロパティの指定が入っているのを多く見かけるようになりました。
+  </p>
+
+  <div class="sample-object">
+    <div class="wrapper">
+      <div class="header">
+        <a href="#a">A</a>
+        <a href="#b">B</a>
+        <a href="#c">C</a>
+      </div>
+      <div id="a" class="section"><h1>Section A</h1></div>
+      <div id="b" class="section"><h1>Section B</h1></div>
+      <div id="c" class="section"><h1>Section C</h1></div>
+    </div>
+  </div>
+
+  <pre><code class="language-html">&lt;div class="wrapper"&gt;
+  &lt;div class="header"&gt;
+    &lt;a href="#a"&gt;A&lt;/a&gt;
+    &lt;a href="#b"&gt;B&lt;/a&gt;
+    &lt;a href="#c"&gt;C&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="section" id="a"&gt;
+    &lt;h1&gt;Section A&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div class="section" id="b"&gt;
+    &lt;h1&gt;Section B&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div class="section" id="c"&gt;
+    &lt;h1&gt;Section C&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.wrapper &#123;
+  scroll-behavior: smooth;
+&#125;</code></pre>
+
+  <h2>さらに調整</h2>
+
+  <p>
+    上記の例で CSS だけでのスムーススクロールを実現できましたが、スクロール後に固定ヘッダとスクロールした要素が重なってしまっています。これを避けるためのスクロール位置調整もこれまでは JavaScript でおこなっていましたが、今はこれも CSS で解決できます。
+  </p>
+
+  <p>
+    <code>scroll-margin</code> か <code>scroll-padding</code>
+    を使用します。<code>scroll-margin</code>
+    は子要素であるスクロールするコンテンツに対して指定するプロパティで、<code>scroll-padding</code>
+    は親要素であるスクロールコンテナに対して指定するプロパティという違いがあります。
+  </p>
+
+  <p>
+    以下の例ではスクロールコンテナである <code>.new-wrapper</code> に対して、
+    <code>scroll-behavior: smooth</code> と、固定ヘッダの高さと同じサイズで
+    <code>scroll-padding-top: 60px</code> を指定しています。
+  </p>
+
+  <div class="sample-object">
+    <div class="new-wrapper">
+      <div class="header">
+        <a href="#aa">A</a>
+        <a href="#bb">B</a>
+        <a href="#cc">C</a>
+      </div>
+      <div id="aa" class="section"><h1>Section A</h1></div>
+      <div id="bb" class="section"><h1>Section B</h1></div>
+      <div id="cc" class="section"><h1>Section C</h1></div>
+    </div>
+  </div>
+
+  <pre><code class="language-scss">.new-wrapper &#123;
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+&#125;
+
+.header &#123;
+  height: 60px;
+&#125;</code></pre>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+
+  .new-wrapper {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    padding-bottom: 16px;
+    background: rgba(255, 255, 255, 0.8);
+
+    a {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      text-decoration: none;
+      background-color: #319795;
+      border-radius: 50%;
+    }
+  }
+
+  .section {
+    box-sizing: border-box;
+    height: 400px;
+    padding: 16px;
+
+    h1 {
+      &::before {
+        display: none;
+      }
+    }
+
+    &#a {
+      background-color: rgba(204, 0, 0, 0.6);
+    }
+
+    &#b {
+      background-color: rgba(0, 153, 204, 0.6);
+    }
+
+    &#c {
+      background-color: rgba(0, 204, 102, 0.6);
+    }
+
+    &#aa {
+      background-color: rgba(204, 0, 0, 0.6);
+    }
+
+    &#bb {
+      background-color: rgba(0, 153, 204, 0.6);
+    }
+
+    &#cc {
+      background-color: rgba(0, 204, 102, 0.6);
+    }
+  }
+</style>

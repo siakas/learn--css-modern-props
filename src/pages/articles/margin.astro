@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="中央揃えのための `margin: 0 auto`">
+  <h1>中央揃えのための `margin: 0 auto`</h1>
+
+  <p>
+    あるブロック要素を左右から中央揃えにする場合、<code>margin: 0 auto</code>
+    という書き方をすることがよくあります。
+  </p>
+
+  <div class="sample-object">
+    <div class="container">
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <pre><code class="language-scss">.box &#123;
+  width: 240px;
+  height: 200px;
+  margin: 0 auto;
+&#125;</code></pre>
+
+  <p>
+    実はこれ、<code>margin-top</code> と <code>margin-bottom</code> の値が
+    <code>auto</code> の時は <code>0</code>
+    が割り当てられると CSS の仕様書に記載されているため、<code>margin: auto</code>
+    としても同じ内容になります。
+  </p>
+
+  <div class="sample-object">
+    <div class="container">
+      <div class="box2"></div>
+    </div>
+  </div>
+
+  <pre><code class="language-scss">.box2 &#123;
+  width: 240px;
+  height: 200px;
+  margin: auto;
+&#125;</code></pre>
+
+  <p>
+    最近は <code>margin: auto</code>
+    で書かれているスタイルを目にすることも多いので、書き方を見直すのもアリでしょう。
+  </p>
+</BaseLayout>
+
+<style>
+  .container {
+    .box {
+      width: 240px;
+      height: 200px;
+      margin: 0 auto;
+      background: #c00;
+    }
+
+    .box2 {
+      width: 240px;
+      height: 200px;
+      margin: auto;
+      background: #09c;
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(if [ -f .env.local ])",
+      "Bash(then grep -q \"RECRAFT_API_KEY\" .env.local)",
+      "Bash(else echo \".env.local not found\")",
+      "Bash(fi)",
+      "Bash(tree:*)",
+      "Skill(vercel-react-best-practices)",
+      "Skill(vercel-react-best-practices:*)",
+      "Bash(wc:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
