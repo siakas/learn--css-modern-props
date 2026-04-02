@@ -46,7 +46,7 @@ CSS 学習用デモ部分を除いたレイアウト・ナビゲーション・�
 
 ### Step 3: `BackIndex.astro` の移行
 
-- [ ] `<style>` タグを削除し、Tailwind クラスに置き換える
+- [x] `<style>` タグを削除し、Tailwind クラスに置き換える
   - [Question] 「トップへ戻る」ボタンは shadcn/ui の `Button` コンポーネント（`variant="outline"` 等）に置き換えてよいですか？それとも `<a>` タグに Tailwind クラスを当てるだけにしますか？
   - [Answer]
     - Button コンポーネントに置き換える。
