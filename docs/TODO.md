@@ -8,21 +8,21 @@
 
 詳細: [01-cleanup-and-init.md](./01-cleanup-and-init.md)
 
-- [ ] ブランチ作成（`feature/astro-migration`）
-- [ ] `gulpfile.js/`、`gulp.config.js` の削除
-- [ ] `src/pug/` の削除
-- [ ] `src/sass/` の削除
-- [ ] `.prettierrc.toml`、`.stylelintrc.js` の削除
-- [ ] `dist/` の削除
-- [ ] `package.json` を Astro 用に書き換え
-- [ ] `astro@latest` のインストール
-- [ ] `astro.config.mjs` の作成（最小構成）
-- [ ] `tsconfig.json` の作成
-- [ ] `.gitignore` の更新
-- [ ] ディレクトリ構造の作成（`src/components/ui`、`src/layouts`、`src/pages/articles`、`src/styles`、`src/data`、`src/lib`、`public/assets/img`）
-- [ ] `src/data/articles.json` の作成（`src/json/articles.json` をコピーし、`css-custom-props-margin` 記事を追加）
-- [ ] `src/json/` の削除
-- [ ] `public/assets/img/play.svg` の配置
+- [x] ブランチ作成（`feature/astro-migration`）
+- [x] `gulpfile.js/`、`gulp.config.js` の削除
+- [x] `src/pug/` の削除
+- [x] `src/sass/` の削除
+- [x] `.prettierrc.toml`、`.stylelintrc.js` の削除
+- [x] `dist/` の削除
+- [x] `package.json` を Astro 用に書き換え
+- [x] `astro@latest` のインストール
+- [x] `astro.config.mjs` の作成（最小構成）
+- [x] `tsconfig.json` の作成
+- [x] `.gitignore` の更新
+- [x] ディレクトリ構造の作成（`src/components/ui`、`src/layouts`、`src/pages/articles`、`src/styles`、`src/data`、`src/lib`、`public/assets/img`）
+- [x] `src/data/articles.json` の作成（`src/json/articles.json` をコピーし、`css-custom-props-margin` 記事を追加）
+- [x] `src/json/` の削除
+- [x] `public/assets/img/play.svg` の配置
 
 ---
 
