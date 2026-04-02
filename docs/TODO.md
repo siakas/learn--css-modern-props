@@ -30,11 +30,11 @@
 
 詳細: [02-integrations.md](./02-integrations.md)
 
-- [ ] `npx astro add react` の実行
-- [ ] `npx astro add tailwind` の実行（`applyBaseStyles: false` の設定）
-- [ ] `src/styles/globals.css` の作成
-- [ ] `@biomejs/biome` のインストール・`npx biome init` の実行
-- [ ] `biome.json` の設定
+- [x] `npx astro add react` の実行
+- [x] `npx astro add tailwind` の実行（Tailwind v4 は `@tailwindcss/vite` プラグイン方式）
+- [x] `src/styles/globals.css` の作成
+- [x] `@biomejs/biome` のインストール・`npx biome init` の実行
+- [x] `biome.json` の設定
 - [ ] `npm run dev` での起動確認
 
 ---
@@ -43,12 +43,12 @@
 
 詳細: [03-shadcn-setup.md](./03-shadcn-setup.md)
 
-- [ ] `npx shadcn@latest init` の実行
-- [ ] `components.json` の確認
-- [ ] `src/lib/utils.ts` の確認（`clsx`、`tailwind-merge` のインストール）
-- [ ] `npx shadcn@latest add card` の実行
-- [ ] `globals.css` への shadcn/ui CSS 変数の統合
-- [ ] `tsconfig.json` の `@/*` パスエイリアス確認
+- [x] `npx shadcn@latest init` の実行（`components.json` を手動作成）
+- [x] `components.json` の確認
+- [x] `src/lib/utils.ts` の確認（`clsx`、`tailwind-merge` のインストール）
+- [x] `npx shadcn@latest add card` の実行
+- [x] `globals.css` への shadcn/ui CSS 変数の統合
+- [x] `tsconfig.json` の `@/*` パスエイリアス確認
 
 ---
 
