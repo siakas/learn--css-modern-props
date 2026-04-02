@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="天地中央">
+  <h1>天地中央</h1>
+
+  <p>
+    ある要素を親要素の天地中央に配置したい場合、いくつかの方法があります。<br />
+    かつてよく使われていたのは、<code>position: absolute</code> と
+    <code>translate</code> を組み合わせる方法でしょう。
+  </p>
+
+  <div class="sample-object">
+    <div class="container1">
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <pre><code class="language-html">&lt;div class="container1"&gt;
+  &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.container1 &#123;
+  position: relative;
+  height: 300px;
+
+  .box &#123;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+  &#125;
+&#125;</code></pre>
+
+  <p>
+    このスタイルは親要素に対して子要素の位置を <code>position</code> と
+    <code>translate</code> で指定することになるため、複数の要素を天地中央で並べることはできません。その場合は、以下のように天地中央に配置する要素の中で、さらにレイアウト指定をする工夫が必要になり、スタイル指定が複雑になります。
+  </p>
+
+  <div class="sample-object">
+    <div class="circle">
+      <div class="wrapper">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <pre><code class="language-html">&lt;div class="circle"&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.circle &#123;
+  position: relative;
+  width: 48px;
+  height: 48px;
+
+  .wrapper &#123;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+
+    span &#123;
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 2px;
+      margin: 6px 0 0;
+
+      &::before,
+      &::after &#123;
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        content: "";
+      &#125;
+
+      &::before &#123;
+        transform: translateY(-6px);
+      &#125;
+
+      &::after &#123;
+        transform: translateY(6px);
+      &#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+  <p>
+    そこで <code>display: flex</code> を使うことで、もっとシンプルに天地中央を実現できるようになります。
+  </p>
+
+  <h2>flex を使った天地中央</h2>
+
+  <p>
+    親要素に <code>display: flex</code> を指定し、
+    <code>justify-content: center</code> と <code>align-items: center</code>
+    をあわせて指定することで、子要素が縦方向と横方向それぞれの中央に配置されます。
+  </p>
+
+  <div class="sample-object">
+    <div class="circle2">
+      <span></span>
+    </div>
+  </div>
+
+  <pre><code class="language-html">&lt;div class="circle"&gt;
+  &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.circle &#123;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+
+  span &#123;
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+
+    &::before,
+    &::after &#123;
+      position: absolute;
+      display: block;
+      width: 24px;
+      height: 2px;
+      content: "";
+    &#125;
+
+    &::before &#123;
+      transform: translateY(-6px);
+    &#125;
+
+    &::after &#123;
+      transform: translateY(6px);
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+  <p>
+    だいぶシンプルになりましたが、IE を無視できるようになった現在では、
+    <code>display: grid</code> を使うことで、さらにシンプルな記述ができます。
+  </p>
+
+  <h2>今はこう書ける</h2>
+
+  <p>前述の <code>.circle</code> に指定していた、</p>
+
+  <pre><code class="language-scss">.circle &#123;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+&#125;</code></pre>
+
+  <p>
+    の部分を、<code>display: grid</code> と <code>place-items: center</code>
+    を使って、下記のように書き換えることができます。
+  </p>
+
+  <pre><code class="language-scss">.circle &#123;
+  display: grid;
+  place-items: center;
+&#125;</code></pre>
+
+  <div class="sample-object">
+    <div class="circle3">
+      <span></span>
+    </div>
+  </div>
+
+  <p>
+    <code>place-items</code> プロパティは、<code>align-items</code> と
+    <code>justify-items</code> プロパティを一括で指定するプロパティで、この値を
+    <code>center</code> としてやることで <code>display: grid</code>
+    の子要素を天地中央に配置することができます。
+  </p>
+
+  <p>
+    なお、<code>display: flex</code> では <code>justify-items</code>
+    プロパティが機能しないため、<code>place-items</code>
+    プロパティを意図通りに利用することはできません。
+    <code>place-items: center</code> を使う場合は <code>display: grid</code>
+    と併用するよう注意してください。
+  </p>
+</BaseLayout>
+
+<style>
+  .container1 {
+    position: relative;
+    height: 300px;
+
+    .box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: #c00;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .circle {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    background-color: #2e2e48;
+    border-radius: 50%;
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 14px;
+      transform: translate(-50%, -50%);
+
+      span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin: 6px 0 0;
+        background-color: #fff;
+        border-radius: 3px;
+
+        &::before,
+        &::after {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 2px;
+          content: "";
+          background-color: #fff;
+          border-radius: 3px;
+        }
+
+        &::before {
+          transform: translateY(-6px);
+        }
+
+        &::after {
+          transform: translateY(6px);
+        }
+      }
+    }
+  }
+
+  .circle2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    background-color: #2e2e48;
+    border-radius: 50%;
+
+    span {
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 3px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 2px;
+        content: "";
+        background-color: #fff;
+        border-radius: 3px;
+      }
+
+      &::before {
+        transform: translateY(-6px);
+      }
+
+      &::after {
+        transform: translateY(6px);
+      }
+    }
+  }
+
+  .circle3 {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    background-color: #2e2e48;
+    border-radius: 50%;
+
+    span {
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 3px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 2px;
+        content: "";
+        background-color: #fff;
+        border-radius: 3px;
+      }
+
+      &::before {
+        transform: translateY(-6px);
+      }
+
+      &::after {
+        transform: translateY(6px);
+      }
+    }
+  }
+</style>

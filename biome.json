@@ -5,8 +5,12 @@
     "clientKind": "git",
     "useIgnoreFile": true
   },
-  "organizeImports": {
-    "enabled": true
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "linter": {
     "enabled": true,
@@ -27,11 +31,25 @@
       "trailingCommas": "es5"
     }
   },
+  "overrides": [
+    {
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    }
+  ],
   "files": {
-    "ignore": [
-      "dist/**",
-      ".astro/**",
-      "node_modules/**"
+    "includes": [
+      "**",
+      "!dist/**",
+      "!.astro/**",
+      "!node_modules/**"
     ]
   }
 }

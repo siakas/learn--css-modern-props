@@ -35,7 +35,7 @@
 - [x] `src/styles/globals.css` の作成
 - [x] `@biomejs/biome` のインストール・`npx biome init` の実行
 - [x] `biome.json` の設定
-- [ ] `npm run dev` での起動確認
+- [ ] `pnpm dev` での起動確認（ブラウザ目視確認）
 
 ---
 
@@ -75,17 +75,17 @@
 
 詳細: [06-article-pages.md](./06-article-pages.md)
 
-- [ ] `src/pages/articles/gap.astro`
-- [ ] `src/pages/articles/place-items.astro`
-- [ ] `src/pages/articles/inset.astro`
-- [ ] `src/pages/articles/aspectratio-objectfit.astro`
-- [ ] `src/pages/articles/clamp.astro`
-- [ ] `src/pages/articles/margin.astro`
-- [ ] `src/pages/articles/display-none.astro`（JS 含む）
-- [ ] `src/pages/articles/text-align-last.astro`
-- [ ] `src/pages/articles/smooth-scroll.astro`
-- [ ] `src/pages/articles/transform.astro`
-- [ ] `src/pages/articles/css-custom-props-margin.astro`
+- [x] `src/pages/articles/gap.astro`
+- [x] `src/pages/articles/place-items.astro`
+- [x] `src/pages/articles/inset.astro`
+- [x] `src/pages/articles/aspectratio-objectfit.astro`
+- [x] `src/pages/articles/clamp.astro`
+- [x] `src/pages/articles/margin.astro`
+- [x] `src/pages/articles/display-none.astro`（JS 含む）
+- [x] `src/pages/articles/text-align-last.astro`
+- [x] `src/pages/articles/smooth-scroll.astro`
+- [x] `src/pages/articles/transform.astro`
+- [x] `src/pages/articles/css-custom-props-margin.astro`
 
 ---
 
@@ -102,13 +102,13 @@
 - [ ] サイドバーナビゲーションの動作確認
 
 ### コード品質
-- [ ] `npm run check`（Biome）でエラーゼロ
-- [ ] `npx astro check`（TypeScript）でエラーゼロ
+- [x] `pnpm check`（Biome）でエラーゼロ
+- [x] `pnpm exec astro check`（TypeScript）でエラーゼロ
 
 ### ビルド
-- [ ] `npm run build` が正常に完了する
-- [ ] `npm run preview` でビルド成果物が正常に表示される
-- [ ] `dist/` に全 12 ページ分の HTML が生成されている
+- [x] `pnpm build` が正常に完了する
+- [ ] `pnpm preview` でビルド成果物が正常に表示される
+- [x] `dist/` に全 12 ページ分の HTML が生成されている
 
 ---
 

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="最小値・推奨値・最大値の設定">
+  <h1>最小値・推奨値・最大値の設定</h1>
+
+  <p>
+    たとえばあるボックスの幅を、親要素に対して <code>70%</code>
+    と設定し、そのうえで最小幅を <code>200px</code>、最大幅を <code>500px</code>
+    と設定しておきたい場合、以下のようなスタイルを指定することになります。
+  </p>
+
+  <div class="sample-object">
+    <div class="old-box"></div>
+  </div>
+
+  <pre><code class="language-scss">.box &#123;
+  width: 70%;
+  min-width: 200px;
+  max-width: 500px;
+  margin: auto;
+&#125;</code></pre>
+
+  <p>
+    このように、なんらかのプロパティに対して（上記の例では幅）「最小値」「推奨値」「最大値」を設定したい場合、
+    <code>clamp()</code>
+    関数を利用することで、それらの値をまとめて設定することができます。
+  </p>
+
+  <h2>今はこう書ける</h2>
+
+  <p>
+    <code>clamp()</code>
+    関数は引数として、左から「最小値」「推奨値」「最大値」の 3 つの値をとります。
+  </p>
+
+  <div class="sample-object">
+    <div class="new-box"></div>
+  </div>
+
+  <pre><code class="language-scss">.box &#123;
+  width: clamp(200px, 70%, 500px);
+  margin: auto;
+&#125;</code></pre>
+
+  <h2>clamp() の利用</h2>
+
+  <p>
+    <code>clamp()</code> 関数と <code>vw</code>
+    などの可変の単位を併用することで、最小値と最大値を制限したうえでその間で推奨値を変化させることができます。たとえばビューポートの幅に応じて
+    <code>font-size</code> を <code>16px</code> と <code>24px</code>
+    の間で可変させるには、次のように指定することができます。
+  </p>
+
+  <div class="sample-object">
+    <p class="text">
+      先日の台風19号の被害により、千葉県南部では停電が続いています。復旧作業は緊急に行われておりますが、まだまだ多くの方々が困難な状況に置かれています。関係各所では、被災地への支援物資や食料品の提供が行われております。
+    </p>
+  </div>
+
+  <pre><code class="language-scss">.text &#123;
+  font-size: clamp(1rem, 1vw, 1.5rem);
+&#125;</code></pre>
+
+  <p>
+    このような <code>clamp()</code>
+    関数とビューポートを組み合わせた指定は、下記のようなジェネレータサイトが便利です。活用してみてください。<br />
+    <a href="https://min-max-calculator.9elements.com/" target="_blank" rel="noopener noreferrer">Min-Max-Value Interpolation</a>
+  </p>
+</BaseLayout>
+
+<style>
+  .old-box {
+    width: 70%;
+    min-width: 200px;
+    max-width: 500px;
+    height: 240px;
+    margin: auto;
+    background-color: #c00;
+  }
+
+  .new-box {
+    width: clamp(200px, 70%, 500px);
+    height: 240px;
+    margin: auto;
+    background-color: #09c;
+  }
+
+  .text {
+    font-size: clamp(1rem, 1vw, 1.5rem);
+    line-height: 1.625;
+  }
+</style>

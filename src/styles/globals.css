@@ -33,10 +33,11 @@
     --color-border: #ddd;
 
     /* フォントファミリー */
-    --font-sans: "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
-      sans-serif;
-    --font-mono: Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console",
-      Consolas, Courier, monospace;
+    --font-sans:
+      "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    --font-mono:
+      Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Consolas,
+      Courier, monospace;
   }
 
   .dark {
@@ -55,7 +56,8 @@
   }
 
   body {
-    @apply text-[#333] bg-white;
+    color: #333;
+    background-color: white;
   }
 
   pre,

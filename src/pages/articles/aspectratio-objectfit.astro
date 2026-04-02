@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="画像サイズを比率で調整（aspect-ratio と object-fit）">
+  <h1>画像サイズを比率で調整（aspect-ratio と object-fit）</h1>
+
+  <p>
+    「画像を特定の比率で表示」「画像は表示領域に合わせてフィット」という要件を、以前は
+    <code>background-image</code> と <code>background-size</code>、
+    <code>padding-top</code> などを組み合わせて実現していました。
+  </p>
+
+  <div class="sample-object">
+    <div class="card-sample1">
+      <div class="item">
+        <div class="image">
+          <span style="background-image: url('https://picsum.photos/id/237/600/400')"></span>
+        </div>
+        <div class="text"><p>テキストテキスト</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <span style="background-image: url('https://picsum.photos/id/237/600/400')"></span>
+        </div>
+        <div class="text"><p>テキストテキストテキストテキストテキストテキスト</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <span style="background-image: url('https://picsum.photos/id/237/600/400')"></span>
+        </div>
+        <div class="text"><p>テキストテキスト</p></div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    上記のサンプルは以下のコードで実現しています。<br />
+    サムネイル画像は <code>16:9</code> のアスペクト比になるよう
+    <code>padding-top</code> の値を設定しています。
+  </p>
+
+  <pre><code class="language-html">&lt;div class="card-sample1"&gt;
+  &lt;div class="item"&gt;
+    &lt;div class="image"&gt;
+      &lt;span style="background-image: url('https://picsum.photos/id/237/600/400')"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="text"&gt;
+      &lt;p&gt;テキストテキスト&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.card-sample1 &#123;
+  .image &#123;
+    overflow: hidden;
+
+    span &#123;
+      display: block;
+      padding-top: 56.25%;
+      background-position: center;
+      background-size: cover;
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+  <h2>今はこう書ける</h2>
+
+  <p>
+    「画像を特定の比率で表示」は <code>aspect-ratio</code> プロパティ、「画像は表示領域に合わせてフィット」は
+    <code>object-fit</code> プロパティを使うことで、よりシンプルに実現できます。
+  </p>
+
+  <p>
+    下記のコードなら画像を背景画像ではなく <code>img</code>
+    要素として扱うことができるので、<code>loading</code>
+    属性を設定するなど、より柔軟に取り扱うことができます。
+  </p>
+
+  <div class="sample-object">
+    <div class="card-sample2">
+      <div class="item">
+        <div class="image">
+          <img src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text"><p>テキストテキスト</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text"><p>テキストテキスト</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text"><p>テキストテキスト</p></div>
+      </div>
+    </div>
+  </div>
+
+  <pre><code class="language-html">&lt;div class="card-sample2"&gt;
+  &lt;div class="item"&gt;
+    &lt;div class="image"&gt;
+      &lt;img src="https://picsum.photos/id/237/600/400" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div class="text"&gt;
+      &lt;p&gt;テキストテキスト&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <pre><code class="language-scss">.card-sample2 &#123;
+  .image &#123;
+    img &#123;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+  <p>
+    また <code>aspect-ratio</code> プロパティは <code>img</code>
+    要素に限らないため、<code>iframe</code> 要素に指定して YouTube
+    動画の縦横比を制御することもできます。もちろん、その他のブロック要素に指定することも可能です。
+  </p>
+
+  <h2>その他のメジャーなアスペクト比</h2>
+
+  <div class="sample-object">
+    <div class="card-sample3">
+      <div class="item">
+        <div class="image">
+          <img class="aspect1" src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text"><p>16:9</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img class="aspect2" src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text"><p>4:3</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img class="aspect3" src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text"><p>3:2</p></div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img class="aspect4" src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text">
+          <p>黄金比（1:1.618）<br /><span>※CSS では横長になるよう指定</span></p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img class="aspect5" src="https://picsum.photos/id/237/600/400" alt="" />
+        </div>
+        <div class="text">
+          <p>白銀比（1:1.414）<br /><span>※CSS では横長になるよう指定</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .card-sample1 {
+    display: flex;
+    gap: 16px;
+
+    .item {
+      flex: 1;
+    }
+
+    .image {
+      overflow: hidden;
+
+      span {
+        display: block;
+        padding-top: 56.25%;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+
+    .text {
+      margin: 0.6em 0 0;
+
+      p {
+        font-size: 0.875rem;
+        line-height: 1.45;
+      }
+    }
+  }
+
+  .card-sample2 {
+    display: flex;
+    gap: 16px;
+
+    .item {
+      flex: 1;
+    }
+
+    .image {
+      img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+    }
+
+    .text {
+      margin: 0.6em 0 0;
+
+      p {
+        font-size: 0.875rem;
+        line-height: 1.45;
+      }
+    }
+  }
+
+  .card-sample3 {
+    display: flex;
+    gap: 8px;
+
+    .item {
+      flex: 1;
+    }
+
+    .image {
+      img {
+        object-fit: cover;
+
+        &.aspect1 {
+          aspect-ratio: 16 / 9;
+        }
+
+        &.aspect2 {
+          aspect-ratio: 4 / 3;
+        }
+
+        &.aspect3 {
+          aspect-ratio: 3 / 2;
+        }
+
+        &.aspect4 {
+          aspect-ratio: 1.618 / 1;
+        }
+
+        &.aspect5 {
+          aspect-ratio: 1.414 / 1;
+        }
+      }
+    }
+
+    .text {
+      margin: 0.6em 0 0;
+
+      p {
+        font-size: 0.875rem;
+        line-height: 1.45;
+
+        span {
+          font-size: 0.6875rem;
+        }
+      }
+    }
+  }
+</style>
