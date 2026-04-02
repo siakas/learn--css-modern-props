@@ -83,3 +83,35 @@
     }
   }
 }
+
+/* prose（記事本文）のカスタマイズ */
+@layer components {
+  /* 見出しの # プレフィックス */
+  .prose h1::before {
+    content: '# ';
+    color: #0d9488;
+  }
+
+  .prose h2::before {
+    content: '## ';
+    color: #0d9488;
+  }
+
+  .prose h3::before {
+    content: '### ';
+    color: #0d9488;
+  }
+
+  /* サンプルオブジェクト共通スタイル */
+  .prose .sample-object {
+    padding: 16px;
+    margin: 32px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  .prose .sample-object * {
+    padding: 0;
+    margin: 0;
+  }
+}

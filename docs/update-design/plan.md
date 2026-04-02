@@ -55,7 +55,7 @@ CSS 学習用デモ部分を除いたレイアウト・ナビゲーション・�
 
 ### Step 4: `BaseLayout.astro` のレイアウトスタイル移行
 
-- [ ] ラッパー・コンテナ・メイン・サイドバーのレイアウト CSS（`.wrapper`、`.container`、`.main`、`.side`）を Tailwind クラスに置き換える
+- [x] ラッパー・コンテナ・メイン・サイドバーのレイアウト CSS（`.wrapper`、`.container`、`.main`、`.side`）を Tailwind クラスに置き換える
 
 ---
 
