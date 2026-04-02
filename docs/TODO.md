@@ -56,9 +56,9 @@
 
 詳細: [04-layout-components.md](./04-layout-components.md)
 
-- [ ] `src/layouts/BaseLayout.astro` の作成
-- [ ] `src/components/Navigation.astro` の作成
-- [ ] `src/components/BackIndex.astro` の作成
+- [x] `src/layouts/BaseLayout.astro` の作成
+- [x] `src/components/Navigation.astro` の作成
+- [x] `src/components/BackIndex.astro` の作成
 
 ---
 
@@ -66,7 +66,7 @@
 
 詳細: [05-home-page.md](./05-home-page.md)
 
-- [ ] `src/pages/index.astro` の作成
+- [x] `src/pages/index.astro` の作成
 - [ ] ブラウザで動作確認（`http://localhost:4321/`）
 
 ---
