@@ -12,16 +12,18 @@ const { articles } = articlesData
 ---
 
 <BaseLayout title="モダン CSS の学習" showBackIndex={false}>
-  <h1>モダン CSS の学習 〜今はこう書けますよ〜</h1>
+  <h1 class="not-prose text-3xl font-bold leading-snug">
+    モダン CSS の学習 〜今はこう書けますよ〜
+  </h1>
 
-  <ul class="home-index">
+  <ul class="not-prose mt-8 flex flex-wrap gap-6 p-0 list-none">
     {
       articles.map((article) => (
-        <li>
-          <a href={`/articles/${article.slug}`}>
-            <Card className="h-full transition-colors hover:border-[#319795]">
+        <li class="flex w-[calc(50%-12px)]">
+          <a href={`/articles/${article.slug}`} class="block w-full no-underline text-inherit">
+            <Card className="h-full transition-colors hover:border-teal-600">
               <CardHeader>
-                <CardTitle className="text-[#319795] text-base">
+                <CardTitle className="text-teal-600 text-base">
                   {article.title}
                 </CardTitle>
                 <CardDescription className="text-sm leading-relaxed">
@@ -35,42 +37,3 @@ const { articles } = articlesData
     }
   </ul>
 </BaseLayout>
-
-<style>
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.4;
-  }
-
-  h1::before {
-    content: none;
-  }
-
-  .home-index {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 0;
-    margin: 32px 0 0;
-    list-style: none;
-
-    li {
-      display: flex;
-      width: calc((100% - 24px) / 2);
-    }
-
-    a {
-      display: block;
-      width: 100%;
-      text-decoration: none;
-      color: inherit;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .home-index li {
-      width: 100%;
-    }
-  }
-</style>
