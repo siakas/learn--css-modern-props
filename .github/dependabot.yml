@@ -1,0 +1,39 @@
+version: 2
+updates:
+  # pnpm のパッケージ更新設定
+  - package-ecosystem: 'npm'
+    # package.json がある場所を指定（ルートなので "/"）
+    directory: '/'
+    # 更新チェックの頻度（初心者におすすめは "weekly"）
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'Asia/Tokyo'
+    # 一度に開かれる PR の上限（通知で埋もれないように宣言する）
+    open-pull-requests-limit: 10
+    # プレフィックスをつける（PR を見分けやすくするため）
+    commit-message:
+      prefix: 'chore(deps)'
+    # グループ化設定を追加して PR の数を削減
+    groups:
+      # 開発依存関係をグループ化
+      development-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'
+      # 本番依存関係のパッチバージョンをグループ化
+      production-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'patch'
+    # セキュリティアップデートを無視しない
+    # ignore:
+    # 特定のパッケージを無視する場合はここに追加
+    # - dependency-name: "package-name"
+    #   versions: ["1.x", "2.x"]
+    # ラベルを追加して PR を分類しやすくする
+    labels:
+      - 'dependencies'
+      - 'automated'
