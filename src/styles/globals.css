@@ -88,17 +88,17 @@
 @layer components {
   /* 見出しの # プレフィックス */
   .prose h1::before {
-    content: '# ';
+    content: "# ";
     color: #0d9488;
   }
 
   .prose h2::before {
-    content: '## ';
+    content: "## ";
     color: #0d9488;
   }
 
   .prose h3::before {
-    content: '### ';
+    content: "### ";
     color: #0d9488;
   }
 

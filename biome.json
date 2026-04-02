@@ -24,6 +24,19 @@
     "indentWidth": 2,
     "lineWidth": 80
   },
+  "css": {
+    "parser": {
+      "cssModules": false,
+      "allowWrongLineComments": false,
+      "tailwindDirectives": true
+    },
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    }
+  },
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
