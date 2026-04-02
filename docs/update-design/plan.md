@@ -23,12 +23,12 @@ CSS 学習用デモ部分を除いたレイアウト・ナビゲーション・�
 
 ### Step 1: 事前確認・方針決定
 
-- [ ] `globals.css` に定義済みのカスタムプロパティ（`--color-teal: #319795` 等）を Tailwind テーマに登録し、クラスとして使えるようにする（例：`text-teal`）
+- [x] `globals.css` に定義済みのカスタムプロパティ（`--color-teal: #319795` 等）を Tailwind テーマに登録し、クラスとして使えるようにする（例：`text-teal`）
   - [Question] `--color-teal`（`#319795`）などのサイト固有カラーを Tailwind のテーマカラーとして登録する場合、Tailwind v4 の `@theme` ブロックを `globals.css` 内に記述する形でよいですか？
   - [Answer]
     - 既存のカラーをそのまま踏襲する必要はない。既存テーマカラーに置き換えて構わない。新たなカラーが必要と思えば別途こちらで指示する。
 
-- [ ] `.block-content` 配下のタイポグラフィスタイル（`h1`〜`h3`、`p`、`pre`、`.sample-object` など）の扱いを決定する
+- [x] `.block-content` 配下のタイポグラフィスタイル（`h1`〜`h3`、`p`、`pre`、`.sample-object` など）の扱いを決定する
   - [Question] `.block-content` のスタイルは記事ページ全体のタイポグラフィ基盤です。これは現状の `BaseLayout.astro` の `<style>` タグに残すか、`globals.css` の `@layer` へ移動するか、どちらを希望しますか？（Tailwind クラスへの変換は記事ページの `.block-content` 内に都度クラスを書く必要があり煩雑なため、グローバルスタイルとして残す方が現実的です）
   - [Answer]
     - Tailwind Typography を導入し、利用する。
