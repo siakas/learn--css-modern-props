@@ -129,6 +129,13 @@
 
 /* prose（記事本文）のカスタマイズ */
 @layer components {
+  /* prose カラーテーマのカスタマイズ */
+  .prose {
+    --tw-prose-links: var(--primary);
+    --tw-prose-code: var(--foreground);
+    --tw-prose-pre-bg: oklch(0.17 0.015 145);
+  }
+
   /* 見出しの # プレフィックス */
   .prose h1::before {
     content: "# ";
@@ -145,11 +152,34 @@
     @apply text-primary;
   }
 
+  /* インラインコード */
+  .prose :not(pre) > code {
+    @apply bg-muted text-foreground rounded px-1.5 py-0.5 text-[0.875em] font-mono;
+    font-weight: inherit;
+  }
+
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: none;
+  }
+
+  /* コードブロック */
+  .prose pre {
+    @apply rounded-lg border border-border;
+    padding: 0;
+    background: transparent;
+  }
+
+  .prose pre code.hljs {
+    @apply rounded-lg text-sm;
+    display: block;
+  }
+
   /* サンプルオブジェクト共通スタイル */
   .prose .sample-object {
-    padding: 16px;
+    padding: 24px;
     margin: 32px 0;
-    @apply border border-border rounded-lg;
+    @apply border border-border rounded-lg bg-card;
   }
 
   .prose .sample-object * {
