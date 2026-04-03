@@ -134,6 +134,7 @@
     --tw-prose-links: var(--primary);
     --tw-prose-code: var(--foreground);
     --tw-prose-pre-bg: oklch(0.17 0.015 145);
+    --tw-prose-code-quotes: "";
   }
 
   /* 見出しの # プレフィックス */
@@ -160,7 +161,7 @@
 
   .prose :not(pre) > code::before,
   .prose :not(pre) > code::after {
-    content: none;
+    content: "";
   }
 
   /* コードブロック */
