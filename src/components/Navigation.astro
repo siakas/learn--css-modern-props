@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname
 ---
 
 <nav>
-  <p class="nav-section-label text-xs font-semibold uppercase tracking-widest mb-3 px-3">
+  <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3 px-3">
     Articles
   </p>
   <ul class="list-none p-0 space-y-0.5">
@@ -16,10 +16,10 @@ const currentPath = Astro.url.pathname
           <a
             href={`/articles/${article.slug}`}
             class:list={[
-              'nav-link block px-3 py-2 text-sm rounded-md no-underline transition-colors leading-snug',
+              'block px-3 py-2 text-sm rounded-md no-underline transition-colors leading-snug',
               currentPath === `/articles/${article.slug}`
-                ? 'nav-link--active font-semibold'
-                : 'nav-link--default font-normal',
+                ? 'bg-accent text-primary font-semibold'
+                : 'text-muted-foreground font-normal hover:bg-accent hover:text-accent-foreground',
             ]}
           >
             {article.title}
@@ -29,23 +29,3 @@ const currentPath = Astro.url.pathname
     }
   </ul>
 </nav>
-
-<style>
-  .nav-section-label {
-    color: var(--muted-foreground);
-  }
-
-  .nav-link--default {
-    color: var(--muted-foreground);
-  }
-
-  .nav-link--default:hover {
-    background-color: var(--accent);
-    color: var(--accent-foreground);
-  }
-
-  .nav-link--active {
-    color: var(--color-main);
-    background-color: var(--color-bg-subtle);
-  }
-</style>

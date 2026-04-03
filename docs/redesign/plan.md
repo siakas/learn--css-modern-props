@@ -141,3 +141,10 @@
 - 各記事ページ内の `<style>` タグ（CSS デモ用スタイル）は変更しません
 - コンテンツ（テキスト・コード・デモ HTML）は変更しません
 - shadcn/ui コンポーネント（Button、Card）は引き続き利用可能です
+
+## UI 実装方針（追記）
+
+- すべての UI スタイルは **Tailwind CSS ユーティリティクラス**または **shadcn/ui コンポーネント**で実装する
+- コンポーネントの `<style>` ブロックで CSS 変数を直接参照しない
+- `globals.css` に `@theme inline` ブロックを定義し、shadcn/ui の CSS 変数（`--background`・`--primary` 等）を Tailwind ユーティリティ（`bg-background`・`text-primary` 等）として使用可能にする
+- Astro ファイルでボタン要素が必要な場合は `buttonVariants()` をクラスとして使用する（React コンポーネントの `Button` は React ページ・コンポーネント内でのみ使用）

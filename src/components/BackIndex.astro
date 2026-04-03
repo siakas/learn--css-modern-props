@@ -1,8 +1,9 @@
 ---
+import { buttonVariants } from '@/lib/button-variants'
 ---
 
-<div class="back-index-wrapper flex mt-16 pt-8 border-t">
-  <a href="/" class="back-link inline-flex items-center gap-2 text-sm font-medium no-underline transition-colors">
+<div class="flex mt-16 pt-8 border-t border-border">
+  <a href="/" class={buttonVariants({ variant: 'ghost', size: 'sm' })}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -17,18 +18,3 @@
     記事一覧へ戻る
   </a>
 </div>
-
-<style>
-  .back-index-wrapper {
-    border-color: var(--color-border);
-  }
-
-  .back-link {
-    color: var(--color-main);
-  }
-
-  .back-link:hover {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-</style>

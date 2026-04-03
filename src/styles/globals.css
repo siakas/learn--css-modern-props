@@ -19,18 +19,11 @@
     --accent: oklch(0.9 0.04 145);
     --accent-foreground: oklch(0.2 0.05 145);
     --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
     --border: oklch(0.88 0.025 145);
     --input: oklch(0.88 0.025 145);
     --ring: oklch(0.48 0.18 145);
     --radius: 0.625rem;
-
-    /* サイト固有のカラートークン */
-    --color-main: oklch(0.48 0.18 145);
-    --color-accent: oklch(0.65 0.15 145);
-    --color-text: oklch(0.12 0.025 145);
-    --color-link: oklch(0.48 0.18 145);
-    --color-bg-subtle: oklch(0.94 0.025 145);
-    --color-border: oklch(0.88 0.025 145);
 
     /* フォントファミリー */
     --font-sans:
@@ -56,17 +49,40 @@
     --accent: oklch(0.25 0.04 145);
     --accent-foreground: oklch(0.9 0.015 145);
     --destructive: oklch(0.65 0.22 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
     --border: oklch(0.25 0.025 145);
     --input: oklch(0.25 0.025 145);
     --ring: oklch(0.65 0.18 145);
-
-    --color-main: oklch(0.65 0.18 145);
-    --color-accent: oklch(0.75 0.15 145);
-    --color-text: oklch(0.95 0.01 145);
-    --color-link: oklch(0.65 0.18 145);
-    --color-bg-subtle: oklch(0.2 0.02 145);
-    --color-border: oklch(0.25 0.025 145);
   }
+}
+
+/* Tailwind v4: CSS 変数を Tailwind ユーティリティとして登録 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 @layer base {
@@ -82,13 +98,7 @@
   }
 
   body {
-    color: var(--color-text);
-    background-color: var(--background);
-  }
-
-  ::selection {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    @apply bg-background text-foreground;
   }
 
   pre,
@@ -103,14 +113,17 @@
   }
 
   a {
-    color: var(--color-link);
-    text-decoration: underline;
+    @apply text-primary underline;
 
     &:hover,
     &:active,
     &:focus {
       text-decoration: none;
     }
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
   }
 }
 
@@ -119,25 +132,24 @@
   /* 見出しの # プレフィックス */
   .prose h1::before {
     content: "# ";
-    color: var(--color-main);
+    @apply text-primary;
   }
 
   .prose h2::before {
     content: "## ";
-    color: var(--color-main);
+    @apply text-primary;
   }
 
   .prose h3::before {
     content: "### ";
-    color: var(--color-main);
+    @apply text-primary;
   }
 
   /* サンプルオブジェクト共通スタイル */
   .prose .sample-object {
     padding: 16px;
     margin: 32px 0;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
+    @apply border border-border rounded-lg;
   }
 
   .prose .sample-object * {
