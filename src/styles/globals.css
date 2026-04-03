@@ -159,11 +159,6 @@
     font-weight: inherit;
   }
 
-  .prose :not(pre) > code::before,
-  .prose :not(pre) > code::after {
-    content: "";
-  }
-
   /* コードブロック */
   .prose pre {
     @apply rounded-lg border border-border;
@@ -186,5 +181,13 @@
   .prose .sample-object * {
     padding: 0;
     margin: 0;
+  }
+}
+
+/* Typography のバッククォートを確実に上書き（utilities 層で後勝ち） */
+@layer utilities {
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: "";
   }
 }
