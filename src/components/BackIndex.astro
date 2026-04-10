@@ -1,11 +1,20 @@
 ---
+import { buttonVariants } from '@/lib/button-variants'
 ---
 
-<div class="flex justify-center my-16">
-  <a
-    href="/"
-    class="inline-flex items-center justify-center rounded-md border border-input bg-background px-8 h-11 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-  >
-    トップへ戻る
+<div class="flex mt-16 pt-8 border-t border-border">
+  <a href="/" class={buttonVariants({ variant: 'ghost', size: 'sm' })}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      class="size-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+    </svg>
+    記事一覧へ戻る
   </a>
 </div>

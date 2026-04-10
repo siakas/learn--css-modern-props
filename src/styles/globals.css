@@ -3,47 +3,86 @@
 
 @layer base {
   :root {
-    /* shadcn/ui カラートークン */
+    /* shadcn/ui カラートークン（グリーン基調ライトモード） */
     --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --foreground: oklch(0.12 0.025 145);
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card-foreground: oklch(0.12 0.025 145);
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.12 0.025 145);
+    --primary: oklch(0.48 0.18 145);
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.94 0.025 145);
+    --secondary-foreground: oklch(0.2 0.05 145);
+    --muted: oklch(0.94 0.015 145);
+    --muted-foreground: oklch(0.5 0.04 145);
+    --accent: oklch(0.9 0.04 145);
+    --accent-foreground: oklch(0.2 0.05 145);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.88 0.025 145);
+    --input: oklch(0.88 0.025 145);
+    --ring: oklch(0.48 0.18 145);
     --radius: 0.625rem;
-
-    /* サイト固有のカラートークン */
-    --color-main: #c8133e;
-    --color-sub: #7ec1ea;
-    --color-teal: #319795;
-    --color-text: #333;
-    --color-link: #319795;
-    --color-gray: #f3f3f3;
-    --color-border: #ddd;
 
     /* フォントファミリー */
     --font-sans:
-      "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+      "Plus Jakarta Sans", "Hiragino Kaku Gothic Pro", "Hiragino Sans",
+      sans-serif;
     --font-mono:
-      Menlo, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Consolas,
-      Courier, monospace;
+      "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 
   .dark {
-    /* ダークモードが必要な場合はここに追記 */
+    --background: oklch(0.13 0.015 145);
+    --foreground: oklch(0.95 0.01 145);
+    --card: oklch(0.17 0.015 145);
+    --card-foreground: oklch(0.95 0.01 145);
+    --popover: oklch(0.17 0.015 145);
+    --popover-foreground: oklch(0.95 0.01 145);
+    --primary: oklch(0.65 0.18 145);
+    --primary-foreground: oklch(0.1 0.02 145);
+    --secondary: oklch(0.22 0.03 145);
+    --secondary-foreground: oklch(0.9 0.015 145);
+    --muted: oklch(0.22 0.02 145);
+    --muted-foreground: oklch(0.62 0.04 145);
+    --accent: oklch(0.25 0.04 145);
+    --accent-foreground: oklch(0.9 0.015 145);
+    --destructive: oklch(0.65 0.22 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.25 0.025 145);
+    --input: oklch(0.25 0.025 145);
+    --ring: oklch(0.65 0.18 145);
   }
+}
+
+/* Tailwind v4: CSS 変数を Tailwind ユーティリティとして登録 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 @layer base {
@@ -54,11 +93,12 @@
     tab-size: 4;
     text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    color: #333;
-    background-color: white;
+    @apply bg-background text-foreground;
   }
 
   pre,
@@ -73,8 +113,7 @@
   }
 
   a {
-    color: var(--color-link);
-    text-decoration: underline;
+    @apply text-primary underline;
 
     &:hover,
     &:active,
@@ -82,36 +121,73 @@
       text-decoration: none;
     }
   }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
 }
 
 /* prose（記事本文）のカスタマイズ */
 @layer components {
+  /* prose カラーテーマのカスタマイズ */
+  .prose {
+    --tw-prose-links: var(--primary);
+    --tw-prose-code: var(--foreground);
+    --tw-prose-pre-bg: oklch(0.17 0.015 145);
+    --tw-prose-code-quotes: "";
+  }
+
   /* 見出しの # プレフィックス */
   .prose h1::before {
     content: "# ";
-    color: #0d9488;
+    @apply text-primary;
   }
 
   .prose h2::before {
     content: "## ";
-    color: #0d9488;
+    @apply text-primary;
   }
 
   .prose h3::before {
     content: "### ";
-    color: #0d9488;
+    @apply text-primary;
+  }
+
+  /* インラインコード */
+  .prose :not(pre) > code {
+    @apply bg-muted text-foreground rounded px-1.5 py-0.5 text-[0.875em] font-mono;
+    font-weight: inherit;
+  }
+
+  /* コードブロック */
+  .prose pre {
+    @apply rounded-lg border border-border;
+    padding: 0;
+    background: transparent;
+  }
+
+  .prose pre code.hljs {
+    @apply rounded-lg text-sm;
+    display: block;
   }
 
   /* サンプルオブジェクト共通スタイル */
   .prose .sample-object {
-    padding: 16px;
+    padding: 24px;
     margin: 32px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    @apply border border-border rounded-lg bg-card;
   }
 
   .prose .sample-object * {
     padding: 0;
     margin: 0;
+  }
+}
+
+/* Typography のバッククォートを確実に上書き（utilities 層で後勝ち） */
+@layer utilities {
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: "";
   }
 }

@@ -6,20 +6,20 @@ const currentPath = Astro.url.pathname
 ---
 
 <nav>
-  <p class="m-0 text-5xl font-bold">
-    <a href="/" class="text-teal-600 no-underline hover:no-underline">#</a>
+  <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3 px-3">
+    Articles
   </p>
-  <ul class="mt-6 list-none p-0 text-[0.9375rem] leading-normal space-y-8">
+  <ul class="list-none p-0 space-y-0.5">
     {
       articles.map((article) => (
         <li>
           <a
             href={`/articles/${article.slug}`}
             class:list={[
-              'font-bold no-underline',
+              'block px-3 py-2 text-sm rounded-md no-underline transition-colors leading-snug',
               currentPath === `/articles/${article.slug}`
-                ? 'text-teal-600'
-                : 'text-neutral-600 hover:text-teal-600',
+                ? 'bg-accent text-primary font-semibold'
+                : 'text-muted-foreground font-normal hover:bg-accent hover:text-accent-foreground',
             ]}
           >
             {article.title}
